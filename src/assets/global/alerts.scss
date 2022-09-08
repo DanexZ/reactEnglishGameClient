@@ -1,0 +1,33 @@
+.alert {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: .3rem .8rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    min-height: 1.7rem;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.liveValidateMessage {
+    transition: all .5s ease-out;
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transform: translateY(100%);
+}
+
+.liveValidateMessage--visible {
+    opacity: 1;
+    transform: translateY(-85%);
+}
+
+.small {
+    font-size: 60%;
+}

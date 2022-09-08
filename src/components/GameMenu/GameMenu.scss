@@ -1,0 +1,19 @@
+.gameMenu {
+    
+    li {
+        margin-bottom: .6rem;
+    }
+}
+
+.gameMenu .front:hover {
+    background: #dd4b39;
+    color: white;
+    cursor: pointer;
+}
+
+.gameMenu span {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+}

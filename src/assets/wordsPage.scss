@@ -1,0 +1,200 @@
+.addedWord {
+    background: rgba(0, 80, 0, 0.7);
+}
+
+.wordsPage .front:hover,
+.secretWords .front:hover{
+    background: #dd4b39;
+    color: white;
+    cursor: pointer;
+}
+
+.wordsPage {
+
+    .blueBar {
+
+        > div {
+            width: 50%;
+        }
+
+        input, select {
+            width: 60px;
+            margin-left: .5rem;
+        }
+    }
+
+    .buttons {
+        margin-top: .6rem;
+    }
+
+}
+
+.memoryExercise,
+.wordsOptions{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+
+
+.content .word{
+    margin-top: 15px;
+}
+
+
+
+.wordName {
+    font-weight: 900;
+}
+
+.correctnesses,
+.mistakes{
+    position: absolute;
+    height: 25px;
+    top: 0;
+}
+
+.correctnesses img,
+.mistakes > img{
+    width: 15px;
+    height: auto;
+}
+
+.correctnesses{
+    left: 5px;
+}
+
+.mistakes{
+    right: 2px;
+}
+
+.wordPower{
+    position: absolute;
+    bottom: 8px;
+    text-align: center;
+    width: 100%;
+    font-size: 11px;
+}
+
+.transcriptions{
+    margin-left: 20px;
+}
+
+.transcription{
+    color: white;
+    font-weight: 700;
+    margin-left: 8px;
+}
+
+.transcription:first-child{
+    margin-left: 0;
+}
+
+
+.userStatements{
+    color: white;
+    font-weight: 700;
+}
+
+.userStatements,
+.wordTranscriptions{
+    padding: 0 10px 30px 10px;
+    width: 50%;
+}
+
+.wordTranscriptions{
+    text-align: center;
+}
+
+#cls,
+#speak{
+    margin-right: 20px;
+}
+
+
+
+#score{
+    position: relative;
+}
+
+
+@media(max-width: 1049px){
+
+    .transcriptions{
+        max-width: 150px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .wordsRows .transcriptions{
+        margin-left: 0;
+    }
+
+    .wordsPage .scene{
+        margin: 0 20px 0 20px;
+    }
+
+    .wordsRows .transcription{
+        margin-left: 0;
+    }
+}
+
+@media(max-width: 767px){
+    .wordsNavigation,
+    .secretWordsNavigation{
+        width: 450px;
+        height: 80px;
+    }
+
+    .transcriptions{
+        max-width: 100px;
+    }
+
+    .wordsRows li{
+        padding: 10px 20px;
+    }
+
+    .transcription{
+        margin: 0;
+    }
+
+}
+
+@media(max-width: 479px){
+
+    .wordsView .scene{
+        margin: 0 0 0 20px;
+    }
+
+    .wordsNavigation,
+    .secretWordsNavigation{
+        width: 312px;
+    }
+
+    .wordsRows .transcriptions{
+        display: none;
+    }
+
+    .wordsView .scene{
+        margin: 0 0 0 10px;
+    }
+
+    .memoryExercise .btn,
+    .wordsOptions .btn{
+        margin-top: 6px;
+    }
+
+    .wordsNavigation > div > div:nth-child(1){
+        width: 68%;
+    }
+
+    .wordsNavigation > div > div:nth-child(2){
+        width: 32%;
+    }
+}

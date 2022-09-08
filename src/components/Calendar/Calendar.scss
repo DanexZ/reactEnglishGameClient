@@ -1,0 +1,165 @@
+.calendar-container {
+    position: relative;
+    padding: 1rem 0;
+
+    .previous,
+    .next {
+        position: absolute;
+        top: 50%;
+        width: 4rem;
+        height: auto;
+        cursor: pointer;
+    }
+
+    .previous {
+        left: 10%;
+        transform: translateY(-50%);
+    }
+
+    .next {
+        right: 10%;
+        transform: rotateY(180deg) translateY(-50%);
+    }
+
+}
+
+.calendar {
+    width: 24.5rem;
+    margin: 0 auto;
+    background: #fff;
+    padding-top: 1rem;
+
+    h2 {
+        color: black;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    
+    h2:hover {
+        color: rgb(88,88,88);
+        cursor: pointer;
+    }
+
+    li {
+        width: 14.28%;
+        height: 2rem;
+    }
+
+    .header {
+
+        display: flex;
+        flex-wrap: nowrap;
+        margin-top: 1rem;
+        margin-bottom: .25rem;
+
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+    }
+
+    .action {
+        background: rgb(216, 242, 255)!important;
+        transition: all .1s ease!important;
+    }
+    
+    .action:hover {
+        cursor: pointer;
+        font-weight: 700;
+        background: rgb(180, 231, 255);
+    }
+
+    .days {
+
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            position: relative;
+            background: white;
+            border: 1px solid rgb(210,210,210);
+        }
+
+        span {
+            position: absolute;
+            top: .3rem;
+            left: .5rem;
+        }
+
+        img {
+            position: absolute;
+            bottom: .25rem;
+            right: .5rem;
+            width: .8rem;
+            height: auto;
+        }
+    }
+}
+
+
+
+
+@media (max-width: 1049px) {
+
+    .calendar-container {
+        .previous,
+        .next{
+            width: 3rem;
+        }
+
+        .previous {
+            left: -2%;
+        }
+
+        .next {
+            right: -2%;
+        }
+    } 
+}
+
+@media (max-width: 767px){
+
+    .calendar-container {
+        
+        .previous,
+        .next {
+            width: 1.5rem;
+        }
+    }
+
+
+    
+}
+
+@media (max-width: 479px) {
+
+    .calendar-container {
+
+        .previous,
+        .next {
+            width: 1.2rem;
+        }
+    }
+
+    .calendar {
+        width: 100%;
+
+        span {
+            top: 2px;
+            left: 3px;
+        }
+
+        .days {
+
+            img {
+                bottom: 3px;
+                right: 4px;
+                width: 12px;
+            }
+
+        }
+    
+    }
+}

@@ -1,0 +1,78 @@
+.grey{
+    background: rgb(220,220,220);
+}
+
+#profile{
+    background: rgba(0,0,0, .7);
+    padding: 20px 20px 10px 20px;
+}
+
+.chart:hover {
+    opacity: .9;
+}
+
+.chart{
+    z-index: 1;
+    height: 300px;
+    opacity: .8;
+    transition: all .2s ease;
+}
+
+#title2:after{
+    content: '';
+    display: block;
+    margin: 5px auto;
+    width: 50%;
+    height: 1px;
+    background: rgb(210,210,210);
+}
+
+.underTheProfile{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+.underTheProfile > div:nth-child(1) {
+    width: 40%;
+}
+
+.underTheProfile > div:nth-child(2) {
+    width: 60%;
+}
+
+.underTheProfile > div h3:nth-child(1){
+    padding-top: 0;
+}
+
+.problematicWords{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.leftSideStatistics h3{
+    padding-bottom: 0;
+}
+
+@media (max-width: 1049px) {
+    .chart{
+        height: 250px;
+    }
+}
+
+@media (max-width: 767px){
+    .chart{
+        height: 200px;
+    }
+
+}
+
+@media (max-width: 479px) {
+
+    #profile{
+        padding: 10px;
+    }
+
+}

@@ -1,0 +1,1 @@
+export const verticalScroll = (pixels: number) => window.scrollBy(0, pixels);

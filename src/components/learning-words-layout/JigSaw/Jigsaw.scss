@@ -1,0 +1,43 @@
+.jigsawWrapper {
+    opacity: 0;
+    background: rgba(0,0,0, .6);
+
+    h2 {
+        font-size: 1.4rem;
+        position: absolute;
+        color: #fff;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.jigsaw {
+    background-image: url('../../../../public//images/success.jpg');
+    background-size: cover;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    height: 562px;
+    box-shadow: 0 0 12px rgb(0, 174, 239);
+}
+
+
+.puzzle {
+    position: relative;
+    width: 1.3334%;
+    height: 2.51%;
+    background: transparent;
+}
+
+.inactive {
+    background: rgb(0,0,0);
+    box-shadow: 1px 1px 1px black;
+}
+
+
+@media(orientation: portrait){
+    .jigsaw {
+        width: 100%;
+    }
+}

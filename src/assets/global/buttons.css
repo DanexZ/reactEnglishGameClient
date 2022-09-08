@@ -1,0 +1,48 @@
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 .7rem;
+    position: relative;
+    display: inline-block;
+    background: #3e6edf;
+    color: #fff;
+    border-radius: 3px;
+    border: 0;
+    cursor: pointer;
+    height: 1.9rem;
+    font-size: .8rem;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.btnRed {
+    background: rgb(255, 58, 58);
+}
+
+
+@media( max-width: 479px ){
+    .btn {
+        font-size: .8rem;
+        padding: .5rem .8rem;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

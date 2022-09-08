@@ -1,0 +1,134 @@
+.levelRow {
+
+    .rowNumber {
+        top: 50px;
+    }
+
+    position: relative;
+    padding: 20px;
+    background: rgba(0,0,0, .8);
+    color: #fff;
+    border-bottom: 1px solid #fff;
+
+
+    button, img {
+        margin-left: 18px;
+    }
+
+    .requirements {
+        width: 50%;
+        margin: 0 auto;
+        padding: 15px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    
+        p {
+            position: relative;
+            width: 45%;
+            margin-top: 15px;
+            border-bottom: 1px solid #fff;
+    
+            img {
+                width: 18px;
+                height: auto;
+            }
+        }
+    }
+}
+
+.singlePage {
+    .levelRow:last-child {
+        border-bottom: none;
+    }
+}    
+
+
+
+
+/*#inner-level .content{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#inner-level .scene{
+    margin: 20px 0 0 0;
+}
+
+#inner-level .secretWordsBottom{
+    min-height: 160px;
+}
+
+#remainingWords{
+    margin-left : 10px;
+}
+
+#winner-box{
+    min-height: 291px;
+}
+
+#winner-box .wordButtons{
+    margin-top: 30px;
+}*/
+
+@media(max-width: 1049px){
+
+    .levelRow {
+        .requirements {
+            width: 70%;
+        }
+    
+        p {
+            width: 48%;
+        }
+    }
+
+    #levels img{
+        margin-left: 17px;
+    }
+}
+
+@media( max-width: 767px ){
+
+    .levelRow {
+        .rowNumber {
+            top: 25px;
+            left: 30px;
+        }
+
+        .requirements {
+            width: 80%;
+        }
+
+        img {
+            margin-left: 14px;
+        }
+    }
+
+}
+
+@media( max-width: 479px ){
+
+    .levelRow {
+        .rowNumber {
+            top: 12px;
+            left: 25px;
+        }
+
+        .requirements {
+            width: 95%;
+        }
+
+        img {
+            margin-left: 8px;
+        }
+    }
+
+
+
+    /*#inner-level .scene{
+        margin: 15px 0 0 0;
+    }*/
+}

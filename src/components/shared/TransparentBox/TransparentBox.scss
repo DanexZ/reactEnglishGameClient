@@ -1,0 +1,105 @@
+.transparentBox {
+    position: relative;
+    background: rgba(0,0,0,.8);
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.5);
+    border-radius: 10px;
+    color: #fff;
+
+    h2, h3 {
+        margin-top: 0;
+    }
+
+    p:last-child {      
+        margin-bottom: 0;
+    }
+
+    .inputBox {
+        position: relative;
+    }
+    
+    .inputBox input,
+    .inputBox textarea {
+        width: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff!important;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #fff;
+        outline: none;
+        background-color: transparent;
+    }
+    
+    .inputBox textarea{
+        min-height: 100px;
+    }
+    
+    .inputBox label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        pointer-events: none;
+        transition: .5s; 
+    }
+    
+    .inputBox input:focus ~ label,
+    .inputBox input:valid ~ label,
+    .inputBox input:invalid ~ label,
+    .inputBox textarea ~ label {
+        top: -20px;
+        left: 0;
+        color: #03a9f4;
+        font-size: 12px;
+    }
+
+    input[type="submit"] {
+        background: transparent;
+        border: none;
+        outline: none;
+        color: #fff;
+        background: #03a9f4;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all .2s ease;
+    }
+    
+    input[type="submit"]:hover{
+        background: #0599dd;
+    }
+    
+    /* Change Autocomplete styles in Chrome*/
+    input:-webkit-autofill,
+    input:-webkit-autofill:hover, 
+    input:-webkit-autofill:focus,
+    textarea:-webkit-autofill,
+    textarea:-webkit-autofill:hover,
+    textarea:-webkit-autofill:focus,
+    select:-webkit-autofill,
+    select:-webkit-autofill:hover,
+    select:-webkit-autofill:focus {
+      border-bottom: 1px solid white;
+      -webkit-text-fill-color: white;
+      box-shadow: 0 0 0px 1000px transparent inset;
+      -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+    
+    
+    .invalid-feedback {
+        color: red;
+    }
+
+}
+
+.noPopup {
+    border-radius: 0px;
+    box-shadow: none;
+}

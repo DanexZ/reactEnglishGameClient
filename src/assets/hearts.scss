@@ -1,0 +1,117 @@
+.heartsContainer {
+    position: absolute;
+    top: .7rem;
+    left: .8rem;
+}
+
+.heart {
+    position: relative;
+    display: inline-block;
+    margin-left: .5rem;
+    height: 8px;
+    transform: rotate(-45deg);
+    width: 8px;
+}
+
+.heart > div {
+    border-radius: 50%;
+    height: 8px;
+    position: absolute;
+    width: 8px;
+}
+  
+
+.heartFull,
+.heartFull > div{
+    background: rgb(221, 13, 13);
+}
+
+.heartEmpty,
+.heartEmpty > div{
+    background: rgb(117, 43, 43);
+}
+
+.underHeart{
+    margin-top: 4.5rem;
+    text-align: center;
+}
+
+.circle1 {
+    top: -4px;
+    left: 0;
+  }
+
+.circle2{
+    top: 0px;
+    left: 4px;
+}
+
+.heartBig {
+    position: relative;
+    left: 45%;
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+    transform: rotate(-45deg) translateX(-50%);
+    animation-name: heartAnimation;
+    animation-duration: .5s;
+}
+
+.heartBig > div {
+    border-radius: 50%;
+    width: 6rem;
+    height: 6rem;
+    position: absolute;
+    animation-name: heartAnimation;
+    animation-duration: .5s;
+}
+
+.heartBig .circle1{
+    top: -3rem;
+    animation-name: circle1Animation;
+    animation-duration: .5s;
+}
+
+.heartBig .circle2{
+    left: 3rem;
+    animation-name: circle2Animation;
+    animation-duration: .5s;
+}
+
+@keyframes heartAnimation {
+    0%   {
+        width: 0px;
+        height: 0px;
+    }
+    100% {
+        width: 6rem;
+        height: 6rem;
+    }
+}
+
+
+@keyframes circle1Animation {
+    0%   {
+        top: 0px;
+        width: 0px;
+        height: 0px;
+    }
+    100% {
+        top: -3rem;
+        width: 6rem;
+        height: 6rem;
+    }
+}
+
+@keyframes circle2Animation {
+    0%   {
+        left: 0px;
+        width: 0px;
+        height: 0px;
+    }
+    100% {
+        left: 3rem;
+        width: 6rem;
+        height: 6rem;
+    }
+}

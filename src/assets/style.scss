@@ -1,0 +1,577 @@
+.boxes-wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    min-height: 100vh;
+
+    .transparentBox {
+        min-width: 400px;
+    }
+}
+
+.biggerBox {
+    width: 600px;
+}
+
+.smallBox {
+    width: 400px;
+}
+
+.rowNumber {
+    position: absolute;
+    top: 50%;
+    left: 2.5rem;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgb(0,0,0);
+    transform: translateY(-50%);
+}
+
+
+.blueBar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background: rgba(0, 174, 239, .6);
+    color: white;
+    min-height: 90px;
+    padding: .4rem .7rem;
+    z-index: 998;
+
+    h1, h2, h3 {
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+
+.bottomAdditionalBar {
+    border-top: 1px solid #fff;
+    color: #fff;
+    background: rgba(0,0,0, .9);
+    padding: .8rem;
+}
+
+
+.bottomSticky {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+}
+
+
+.itemContainer {
+    position: relative;
+}
+
+
+.raisedText {
+    font-weight: 900;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.2rem;
+
+    button {
+        margin-right: .9rem;
+    }
+
+    button:last-child {
+        margin-right: 0;
+    }
+}
+
+.elementRow {
+    position: relative;
+    background: rgba(0,0,0, .7);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .6rem 1.5rem;
+    border-bottom: 1px solid white;
+    min-height: 90px;
+
+    > div {
+        display: flex;
+        align-items: center;
+    }
+
+    .scene {
+        margin-left: 1rem;
+    }
+    
+}
+
+.screenCounter {
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translate(-50%, -50%);
+    font-size: 8rem;
+    font-weight: 900;
+    text-shadow: .3rem .3rem 1px rgb(0, 0, 0);
+    color: #fff;
+   
+}
+
+.countingAnime {
+    animation-duration: .3s;
+    animation-name: screenCounterAnimation;
+}
+
+@keyframes screenCounterAnimation {
+
+    25% {
+        scale: 130%;
+    }
+    50% {
+        scale: 100%;
+    }
+}
+
+
+.grey_text {
+    color: rgb(210,210,210);
+}
+
+.green_text {
+    color: rgb(149, 244, 117);
+}
+
+.gold {
+    background-color: rgba(255,255,0, .5);
+}
+
+.goldWord > div {
+    background-color: rgb(212,175,55);
+}
+
+.rolled {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 90px;
+    color: white;
+    overflow: hidden;
+    background: rgba(0,0,0, .6);
+    border-bottom: 1px solid #fff;
+    opacity: 0;
+    transition: all .2s ease-in-out;
+}
+
+.content .scene {
+    display: inline-block;
+    margin: .8rem 0 0 1rem;
+}
+
+
+.slideHide {
+    height: 0px;
+}
+
+.rolled > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70px;
+}
+
+.mountains {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; 
+    z-index: -3;
+    background-image: url('../../public/images/nature1920.jpg');
+    background-size: cover!important;
+    background-repeat: no-repeat!important;
+    
+}
+
+
+.fixed{
+    position: fixed!important;
+    top: 0;
+    z-index: 300;
+}
+
+.sticky {
+    position: sticky;
+    top: 0;
+    left: 0;
+}
+
+#board{
+    min-height: 100vh;
+    padding-bottom: 80px;
+}
+
+.singlePage{
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.content{
+    position: relative;
+    min-height: 15rem;
+}
+
+/* Arrows */
+
+.arrow {
+    position: absolute;
+    height: auto;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    z-index: 998;
+}
+
+.arrowTop,
+.arrowBottom {
+    animation-name: arrowVerticalAnimation;
+    width: 5rem!important;
+}
+
+.arrowRight,
+.arrowLeft {
+    animation-name: arrowHorizontalAnimation;
+    width: 7rem!important;
+}
+
+.arrowTop {
+    bottom: calc(0% + .8rem);
+    left: calc(50% - 2.5rem);
+    transform: translateY(100%);
+    animation-name: arrowTopAnimation;
+}
+
+.arrowBottom {
+    top: calc(0% - .8rem);
+    left: calc(50% - 2.5rem);
+    transform: translateY(-100%);
+    animation-name: arrowBottomAnimation;
+}
+
+.arrowLeft {
+    top: calc(50% - 2.6rem);
+    right: calc(0% - .8rem);
+    transform: translateX(100%);
+    animation-name: arrowLeftAnimation;
+}
+
+.arrowRight {
+    top: calc(50% - 2.6rem);
+    left: calc(0% - .8rem);
+    transform: translateX(-100%);
+    animation-name: arrowRightAnimation;
+}
+
+
+@keyframes arrowBottomAnimation {
+
+    25% {
+        transform: translateY(calc(-100% - 1rem));
+    }
+    50% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes arrowTopAnimation {
+
+    25% {
+        transform: translateY(calc(100% + 1rem));
+    }
+    50% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes arrowLeftAnimation {
+
+    25%{
+        transform: translateX(calc(100% + 1rem));
+    }
+    50%{
+        transform: translateX(100%);
+    }
+}
+
+@keyframes arrowRightAnimation {
+
+    25%{
+        transform: translateX(calc(-100% - 1rem));
+    }
+    50%{
+        transform: translateX(-100%);
+    }
+}
+
+.userPoints{
+    position: relative;
+}
+
+@keyframes pointsAnimation {
+    0%   {
+        top: -30%;
+    }
+    25%  {
+        opacity: 1;
+        top: -40%;
+    }
+    100% {
+        top: -150%;
+        opacity: 0
+    }
+  }
+
+.points {
+    position: absolute;
+    color: rgb(192, 206, 0);
+    font-size: 34px;
+    font-weight: 900;
+    right: -.5rem;
+    text-shadow: 0 0 2px rgb(0, 0, 0);
+    animation-name: pointsAnimation;
+    animation-duration: 2s;
+    overflow: 0;
+    transform: translateX(100%);
+}
+
+
+#mobileBottom{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: black;
+    z-index: 999;
+    padding: 12px 0;
+    text-align: center;
+}
+
+
+.random-message {
+    color: #fff;
+    text-align: center;
+
+    p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+
+
+.error,
+.lastsession{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -100%;
+    left: 0;
+    color: white; 
+    font-weight: 700;
+    font-size: .9rem;
+    z-index: 999;
+}
+.error > p,
+.lastsession > p{
+    margin: 0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+.error > p{
+    background-color: red;
+    opacity: .9;
+}
+
+.lastsession > p{
+    background: rgba(0,0,0, .8);
+}
+
+
+
+.conversations{
+    margin: 10px auto 0 auto;
+    padding: 0 40px;
+    width: 700px;
+}
+
+.conversationRow {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+    border-bottom: 1px solid #fff;
+    padding: 1rem 0;
+    min-height: 90px;
+}
+
+.conversationRow:last-child{
+    border-bottom: none;
+}
+
+.conversationRow button{
+    margin-right: 1rem;
+}
+
+
+.date {
+    color: #fff;
+    margin-top: .6rem;
+    font-size: .6rem;
+    text-align: right;
+}
+
+.settingsRows {
+    color: #fff;
+    padding: 0 1.5rem;
+}
+
+.settingsRow,
+.singleSetting{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;  
+}
+
+.singleSetting {
+    margin-left: .7rem;
+}
+
+
+/** MEDIA QUERIES */
+
+@media( max-width: 1366px ){
+    .mountains{
+        background-image: url('../../public/images/nature1366.jpg');
+    }
+}
+
+@media( max-width: 1280px ){
+    .mountains{
+        background-image: url('../../public/images/nature1280.jpg');
+    }
+}
+
+@media( max-width: 1049px ){
+
+    html{
+        font-size: 18px;
+    }
+
+    .singlePage{
+        width: 650px;
+    }
+
+    .conversations{
+        width: 100%;
+    }
+
+    #conversationsView .box{
+        width: 100%;
+    }
+}
+
+@media( max-width: 960px ){
+    .mountains{
+        background-image: url('../../public/images/nature960.jpg');
+    }
+}
+
+@media( max-width: 767px ){
+
+    html{
+        font-size: 16px;
+    }
+
+    .singlePage{
+        width: 450px;
+    }
+
+    .arrowTop,
+    .arrowBottom{
+        width: 80px!important;
+    }
+
+    .arrowRight,
+    .arrowLeft{
+        width: 100px!important;
+    }
+
+    .arrowTop{
+        left: calc(50% - 40px); 
+    }
+
+    .arrowLeft{
+        top: calc(50% - 40px);
+    }
+
+    .settingsRows{
+        padding: 0 20px;
+    }
+
+    
+}
+
+@media( max-width: 479px ){
+    html{
+        font-size: 14px;
+    }
+
+    .boxes-wrapper {
+        .transparentBox {
+            min-width: 280px;
+        }
+    }
+
+    .singlePage{
+        width: 312px;
+    }
+
+    .slideNav div{
+        margin-left: 4px;
+    }
+
+    #conversationsView .box{
+        padding: 20px;
+    }
+
+    .singleSetting p {
+        max-width: 140px; 
+    }
+
+    .hideOnM{
+        display: none;
+    }
+
+    .heart-big{
+        left: 17%;
+    }
+
+    .underHeart{
+        margin-top: 100px;
+    }
+}
+
+@media (orientation: portrait) {
+    .mountains{
+        background-image: url('../../public/images/nature_mobile.jpg');
+    }
+}

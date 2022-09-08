@@ -1,0 +1,81 @@
+#talkingContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 999;
+
+    .height {
+        height: 200px!important;
+        padding: 20px 0;
+    }
+
+    .width {
+        width: 80%!important;
+    }
+
+    #forward,
+    #finish {
+        position: absolute;
+        width: 20px!important;
+        max-width: 20px!important;
+        left: 50%;
+        bottom: 8%;
+        border-radius: 5px;
+    }
+
+    #forward:hover,
+    #finish:hover {
+        cursor: pointer;
+        opacity: .9;
+    }
+
+    #forward {
+        border-left: 20px solid rgb(65, 166, 233);
+        border-top: 11px solid transparent;
+        border-bottom: 11px solid transparent;
+    }
+
+    #finish {
+        width: 20px;
+        height: 20px;
+        max-width: 20px!important;
+        max-height: 20px!important;
+        background: rgb(65, 166, 233);
+    }
+
+    #talkingArea {
+        position: absolute;
+        top: 64vh;
+        left: 50%;
+        bottom: 0px;
+        width: 2px;
+        height: 0px;
+        border-radius: 10px;
+        color: white;
+        font-weight: 700;
+        background-color: rgba(0,0,0,0.9);
+        transition: height .2s ease, width .3s ease-in;
+        transform: translateX(-50%);
+        overflow: hidden;
+
+        > div {
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+        
+        #userTalk {
+            text-align: right;
+        }
+        
+        #roota {
+            min-height: 23px;
+            overflow: hidden;
+        }
+
+    }
+    
+}       

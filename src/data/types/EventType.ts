@@ -1,0 +1,1 @@
+export type EventType = "unlocked_level" | "unlocked_dialogues" | "unlocked_test";

@@ -1,0 +1,46 @@
+.popup {
+    position: relative;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 10px;
+
+    .innerBox {
+        position: absolute;
+        top: -100%;
+        left: 0;
+        width: 100%;
+        min-height: 100%;
+        background: rgba(0,0,0,.94);
+        transition: all .3s ease;
+    }
+
+    p:hover {
+        cursor: pointer;
+        color: #03a9f4
+    }
+}
+
+
+.popup,
+.innerBox { 
+    top: 50%;
+    left: 50%;
+    width: 400px;  
+    box-sizing: border-box;
+}
+
+
+
+@media( max-width: 767px){
+    .popup,
+    .innerBox {
+        width: 90%;
+    }
+}
+
+
+@media(max-width: 414px) {
+    .popup {
+        width: 300px;
+    }
+}

@@ -1,0 +1,22 @@
+.problematicWord {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 70px;
+    background: rgb(226, 72, 72);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-align: center;
+    padding: 0 10px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+    clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.problematicWord:hover {
+    background: rgb(211, 54, 54);
+    transform: scale(1.1);
+}
