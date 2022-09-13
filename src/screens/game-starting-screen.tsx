@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import AppStateContext from "../context/AppStateContext";
-import AppDispatchContext from "../context/AppDispatchContext";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateContext } from "../context/AppStateContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import Header from "../components/Header/Header";
 import MainNav from "../components/MainNav/MainNav";
 import BottomNav from "../components/BottomNav/BottomNav";
@@ -23,7 +23,7 @@ import AddWordPage from "../game-pages/add-word-page";
 
 
 
-export const GameStartingScreen = () => {
+const GameStartingScreen = () => {
 
     const appState: AppStateInterface = useContext(AppStateContext);
     const appDispatch = useContext(AppDispatchContext);
@@ -115,3 +115,5 @@ export const GameStartingScreen = () => {
         </React.Fragment>
     )
 }
+
+export default GameStartingScreen

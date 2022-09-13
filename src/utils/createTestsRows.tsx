@@ -1,4 +1,4 @@
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import { UserTest } from "../data/models";
 import { getTestsList } from "./getTestsList";
 

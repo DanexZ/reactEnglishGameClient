@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import AppStateContext from "../context/AppStateContext";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppStateContext } from "../context/AppStateContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import { AppAction } from "../data/actions/AppAction";
 import { ANIMATIONS } from "../data/constants";
 

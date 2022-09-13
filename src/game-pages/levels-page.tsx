@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import AppStateContext from "../context/AppStateContext";
+import { AppStateContext } from "../context/AppStateContext";
 import LevelsList from "../components/collect-words-layout/LevelsList";
 import CollectWordsFeature from "../features/collect-words-feature";
 import { useSpeechRecognition } from "../hooks/useSpeechRecognition";

@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import { useImmerReducer } from "use-immer";
-import WordsPageReducer from "../data/reducers/WordsPageReducer";
+import { WordsPageReducer } from "../data/reducers/WordsPageReducer";
 import WordsPage from "../game-pages/words-page";
-import WordsPageStateContext from "../context/WordsPageStateContext";
-import WordsPageDispatchContext from "../context/WordsPageDispatchContext";
-import WordsPageState from "../data/types/WordsPageState";
-import AppStateInterface from "../data/types/AppStateInterface";
-import AppStateContext from "../context/AppStateContext";
+import { WordsPageStateContext } from "../context/WordsPageStateContext";
+import { WordsPageDispatchContext } from "../context/WordsPageDispatchContext";
+import { WordsPageState } from "../data/types/WordsPageState";
+import { AppStateInterface } from "../data/types/AppStateInterface";
+import { AppStateContext } from "../context/AppStateContext";
 import UserWordsPage from "../game-pages/user-words-page";
 import { PAGES } from "../data/constants";
 

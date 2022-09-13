@@ -3,9 +3,9 @@ import { DataLoadingBox } from "../components/DataLoadingBox";
 import { SCREEN_NAMES } from "../data/constants";
 import { AppAction } from "../data/actions/AppAction";
 import { DATA_LOADING_RANDOM_MESSAGES } from "../data/constants";
-import AppStateInterface from "../data/types/AppStateInterface";
-import AppStateContext from "../context/AppStateContext";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppStateInterface } from "../data/types/AppStateInterface";
+import { AppStateContext } from "../context/AppStateContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import { round } from "../utils/round";
 import * as ApiRequest from "../lib/api";
 import { calculateUserEfficiency } from "../utils/calculateUserEfficiency";
@@ -14,7 +14,7 @@ import { useSavingHandlers } from "../hooks/useSavingHandlers";
 import { getRandomItem } from "../utils/getRandomItem";
 import { Event, User, UserTest, UserWord } from "../data/models";
 
-export const DataLoadingFeature = () => {
+const DataLoadingFeature = () => {
 
     const appState: AppStateInterface = useContext(AppStateContext);
     const appDispatch = useContext(AppDispatchContext);
@@ -210,7 +210,7 @@ export const DataLoadingFeature = () => {
     useEffect(() => updateProgress(), [loadedRequests]);
 
 
-    return (
-        <DataLoadingBox message={message} progress={progress} />
-    )
+    return <DataLoadingBox message={message} progress={progress} />
 }
+
+export default DataLoadingFeature

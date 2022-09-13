@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import AppDispatchContext from "../../context/AppDispatchContext";
+import { AppDispatchContext } from "../../context/AppDispatchContext";
 import { AppAction } from "../../data/actions/AppAction";
 import { SCREEN_NAMES, PAGES } from "../../data/constants";
 import { Settings, Power } from "react-ionicons";

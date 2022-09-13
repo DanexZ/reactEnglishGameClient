@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import Calendar from "../components/Calendar/Calendar";
 import SinglePageWrapper from "../components/shared/SinglePageWrapper";
 import { getMonths, UserMonth } from "../utils/getMonths";
-import AppStateContext from "../context/AppStateContext";
+import { AppStateContext } from "../context/AppStateContext";
 import { getDate } from "../utils/date/getDate";
 import ProblematicWords from "../components/ProblematicWords/ProblematicWords";
 

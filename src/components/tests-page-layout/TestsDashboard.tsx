@@ -1,6 +1,6 @@
 import React from "react";
 import { TestWord, UserTest } from "../../data/models";
-import AppStateInterface from "../../data/types/AppStateInterface";
+import { AppStateInterface } from "../../data/types/AppStateInterface";
 import { TestFeatureInterface } from "../../game-pages/tests-page/tests-page";
 import { round } from "../../utils/round";
 

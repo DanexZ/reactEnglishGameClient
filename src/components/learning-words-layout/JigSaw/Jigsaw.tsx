@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 import FixedScreenWrapper from "../../shared/FixedScreenWrapper/FixedScreenWrapper";
-import AppStateContext from "../../../context/AppStateContext";
-import AppStateInterface from "../../../data/types/AppStateInterface";
+import { AppStateContext } from "../../../context/AppStateContext";
+import { AppStateInterface } from "../../../data/types/AppStateInterface";
 import { UserWord, Word } from "../../../data/models";
 import "./Jigsaw.scss";
 

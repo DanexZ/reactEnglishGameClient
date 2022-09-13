@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import AppStateInteface from "../data/types/AppStateInterface";
-import AppStateContext from "../context/AppStateContext";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppStateInterface } from "../data/types/AppStateInterface";
+import { AppStateContext } from "../context/AppStateContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import SingleSentence from "../components/dialogues-layout/SingleSentence";
 import TalkingContainer from "../components/TalkingContainer/TalkingContainer";
 import { SpeakUsingTalkingContainer } from "../data/types/SpeakData";
@@ -18,7 +18,7 @@ import MicBtn from "../components/shared/MicBtn/MicBtn";
 
 const DialogueFeature = ({recognition, micBtnRef}: any) => {
 
-    const appState: AppStateInteface = useContext(AppStateContext);
+    const appState: AppStateInterface = useContext(AppStateContext);
     const appDispatch = useContext(AppDispatchContext);
 
     

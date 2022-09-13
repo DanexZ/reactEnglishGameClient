@@ -4,11 +4,11 @@ import { speak } from "../../../utils/speak";
 import { SpeakJustSay } from "../../../data/types/SpeakData";
 import { Phrase } from "../../../data/models";
 import { deleteAsyncPhrase } from "../../../lib/api";
-import AppStateInterface from "../../../data/types/AppStateInterface";
-import AppStateContext from "../../../context/AppStateContext";
+import { AppStateInterface } from "../../../data/types/AppStateInterface";
+import { AppStateContext } from "../../../context/AppStateContext";
 import Alert from "../../../lib/Alert";
 import { AppAction } from "../../../data/actions/AppAction";
-import AppDispatchContext from "../../../context/AppDispatchContext";
+import { AppDispatchContext } from "../../../context/AppDispatchContext";
 import "./PhrasesRow.scss";
 
 const PhraseRow = ({phrase}: {phrase: Phrase}) => {

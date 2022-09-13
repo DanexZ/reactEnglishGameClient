@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef, useContext } from "react";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import { AppAction } from "../data/actions/AppAction";
 import { LANGS } from "../data/constants";
 export const useSpeechRecognition = () => {

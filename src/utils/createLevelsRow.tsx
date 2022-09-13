@@ -1,7 +1,7 @@
 import LevelRequirementsIterface from "../data/level-requirements-interface";
 import { establichRequirementsForLevels } from "./establishRequirementsForLevels";
 import LevelRow from "../components/collect-words-layout/LevelRow/LevelRow";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import { round } from "./round";
 import { UserTest, UserWord } from "../data/models";
 

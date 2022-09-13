@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import AppDispatchContext from "../../context/AppDispatchContext";
+import { AppDispatchContext } from "../../context/AppDispatchContext";
 import { AppAction } from "../../data/actions/AppAction";
 
 interface Props {

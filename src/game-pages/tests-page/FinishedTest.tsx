@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
 import { TestWord, Translation, UserTest } from "../../data/models";
 import TestRow from "../../components/tests-page-layout/TestRow";
-import AppStateInterface from "../../data/types/AppStateInterface";
-import AppStateContext from "../../context/AppStateContext";
+import { AppStateInterface } from "../../data/types/AppStateInterface";
+import { AppStateContext } from "../../context/AppStateContext";
 import { ExamStatus } from "../../data/types/ExamStatus";
 
 interface TW {

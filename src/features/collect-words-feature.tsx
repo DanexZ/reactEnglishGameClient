@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import AppStateContext from "../context/AppStateContext";
-import AppDispatchContext from "../context/AppDispatchContext";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateContext } from "../context/AppStateContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import { AppAction } from "../data/actions/AppAction";
 import TalkingContainer from "../components/TalkingContainer/TalkingContainer";
 import { useTalkingContainer } from "../hooks/useTalkingContainer";

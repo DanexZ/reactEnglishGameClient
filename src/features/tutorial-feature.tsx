@@ -1,8 +1,8 @@
 import React, { useContext, useEffect } from "react";
 import { speak } from "../utils/speak";
 import { AppAction } from "../data/actions/AppAction";
-import AppDispatchContext from "../context/AppDispatchContext";
-import AppStateContext from "../context/AppStateContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
+import { AppStateContext } from "../context/AppStateContext";
 import { TutorialView } from "../components/TutorialView/TutorialView";
 import { ANIMATIONS, PAGES } from "../data/constants";
 import { useTalkingContainer } from "../hooks/useTalkingContainer";

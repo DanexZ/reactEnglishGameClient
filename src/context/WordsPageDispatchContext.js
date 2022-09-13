@@ -1,5 +1,3 @@
 import { createContext } from "react";
 
-const WordsPageDispatchContext = createContext();
-
-export default WordsPageDispatchContext;
+export const WordsPageDispatchContext = createContext();

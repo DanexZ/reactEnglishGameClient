@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState, useRef, useMemo } from "react";
-import AppStateContext from "../context/AppStateContext";
+import { AppStateContext } from "../context/AppStateContext";
 import { getRandomSet } from "../utils/getRandomSet";
 import { UserMessage, UserWord } from "../data/models";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import TransparentBox from "../components/shared/TransparentBox/TransparentBox";
 import { AppAction } from "../data/actions/AppAction";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import Lifes from "../components/Lifes/Lifes";
 import MicBtn from "../components/shared/MicBtn/MicBtn";
 import Transcriptions from "../components/shared/Transcriptions";

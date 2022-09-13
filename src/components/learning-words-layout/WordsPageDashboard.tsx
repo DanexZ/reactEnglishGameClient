@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import AppStateInterface from "../../data/types/AppStateInterface";
-import AppStateContext from "../../context/AppStateContext";
-import AppDispatchContext from "../../context/AppDispatchContext";
+import { AppStateInterface } from "../../data/types/AppStateInterface";
+import { AppStateContext } from "../../context/AppStateContext";
+import { AppDispatchContext } from "../../context/AppDispatchContext";
 import { AppAction } from "../../data/actions/AppAction";
 import { SortingWordsTypes } from "../../hooks/usePagination";
 import { WordsPageAction } from "../../data/actions/WordsPageAction";
-import WordsPageDispatchContext from "../../context/WordsPageDispatchContext";
-import WordsPageState from "../../data/types/WordsPageState";
-import WordsPageStateContext from "../../context/WordsPageStateContext";
+import { WordsPageDispatchContext } from "../../context/WordsPageDispatchContext";
+import { WordsPageState } from "../../data/types/WordsPageState";
+import { WordsPageStateContext } from "../../context/WordsPageStateContext";
 import { UserWord } from "../../data/models";
 import { WordsFeatureMode } from "../../data/types/WordsFeatureMode";
 

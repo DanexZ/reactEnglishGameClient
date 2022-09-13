@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import { AppAction } from "../data/actions/AppAction";
 import Alert from "../lib/Alert";
 import { loginAsync } from "../lib/api";

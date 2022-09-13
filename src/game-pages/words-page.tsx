@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import AppStateContext from "../context/AppStateContext";
-import WordsPageStateContext from "../context/WordsPageStateContext";
+import { AppStateContext } from "../context/AppStateContext";
+import { WordsPageStateContext } from "../context/WordsPageStateContext";
 import SinglePageWrapper from "../components/shared/SinglePageWrapper";
 import WordsPageDashboard from "../components/learning-words-layout/WordsPageDashboard";
 import Tip from "../components/shared/Tip";
@@ -8,8 +8,8 @@ import WordsList from "../components/learning-words-layout/WordsList";
 import Pagination from "../components/shared/Pagination/Pagination";
 import AdditionalButtons from "../components/learning-words-layout/AdditionalButtons";
 import { usePagination } from "../hooks/usePagination";
-import WordsPageState from "../data/types/WordsPageState";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { WordsPageState } from "../data/types/WordsPageState";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import Jigsaw from "../components/learning-words-layout/JigSaw/Jigsaw";
 import ListeningFeature from "../features/listening-feature";
 import TrainingWordFeature from "../features/training-word-feature";
@@ -20,7 +20,7 @@ import FixedScreenWrapper from "../components/shared/FixedScreenWrapper/FixedScr
 import Popup from "../components/shared/Popup/Popup";
 import TransparentBox from "../components/shared/TransparentBox/TransparentBox";
 import { AppAction } from "../data/actions/AppAction";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 
 const WordsPage = () => {
 

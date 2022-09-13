@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import FixedScreenWrapper from "../components/shared/FixedScreenWrapper/FixedScreenWrapper";
 import TransparentBox from "../components/shared/TransparentBox/TransparentBox";
 import { AppAction } from "../data/actions/AppAction";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import { SCREEN_NAMES } from "../data/constants";
 
 

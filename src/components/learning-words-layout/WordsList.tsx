@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import WordsPageStateContext from "../../context/WordsPageStateContext";
+import { WordsPageStateContext } from "../../context/WordsPageStateContext";
 import { UserWord } from "../../data/models";
-import WordsPageState from "../../data/types/WordsPageState";
+import { WordsPageState } from "../../data/types/WordsPageState";
 import { SingleWordRow } from "./SingleWordRow";
 
 const WordsList = ({rowsOnPage}: any) => {

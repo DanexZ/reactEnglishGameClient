@@ -1,6 +1,6 @@
 import { UserWord } from "../models"
 
-export default interface WordsPageState {
+export interface WordsPageState {
     learningWords: UserWord[]
     inputChosenWords: number
     trainedWord: UserWord | null

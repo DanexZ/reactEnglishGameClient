@@ -2,7 +2,10 @@ import { typing } from "./typing";
 import { chunkTextIntoSentences } from "./chunkTextIntoSentences";
 import { SOUNDS } from "../data/constants";
 import { LANGS } from "../data/constants";
+/* eslint-disable */
 const {Howl, Howler} = require('howler');
+/* eslint-enable */
+
 
 export const speak = (data: any) => {
 

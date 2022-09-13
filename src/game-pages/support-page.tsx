@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import AppStateContext from "../context/AppStateContext";
+import { AppStateContext } from "../context/AppStateContext";
 import { Conversation } from "../data/models";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import ConversationsList from "../components/ConversationsList";
 import ConversationPage from "./conversation-page";
 

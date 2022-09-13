@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import AppStateInterface from "../../data/types/AppStateInterface";
-import AppStateContext from "../../context/AppStateContext";
+import { AppStateInterface } from "../../data/types/AppStateInterface";
+import { AppStateContext } from "../../context/AppStateContext";
 import { createLevelsRow } from "../../utils/createLevelsRow";
 import SinglePageWrapper from "../shared/SinglePageWrapper";
 

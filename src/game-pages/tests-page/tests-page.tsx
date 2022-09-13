@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import AppStateContext from "../../context/AppStateContext";
+import { AppStateContext } from "../../context/AppStateContext";
 import TestsList from "../../components/tests-page-layout/TestsList";
 import { useSpeechRecognition } from "../../hooks/useSpeechRecognition";
 import TestsDashboard from "../../components/tests-page-layout/TestsDashboard";
@@ -8,10 +8,10 @@ import SinglePageWrapper from "../../components/shared/SinglePageWrapper";
 import TestFeature from "../../features/test-feature";
 import { UserTest } from "../../data/models";
 import { AppAction } from "../../data/actions/AppAction";
-import AppDispatchContext from "../../context/AppDispatchContext";
+import { AppDispatchContext } from "../../context/AppDispatchContext";
 import { updateState } from "../../utils/updateState";
 import { round } from "../../utils/round";
-import AppStateInterface from "../../data/types/AppStateInterface";
+import { AppStateInterface } from "../../data/types/AppStateInterface";
 import "./TestsPage.scss";
 import { useSavingHandlers } from "../../hooks/useSavingHandlers";
 

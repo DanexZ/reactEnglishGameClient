@@ -6,10 +6,10 @@ import { useInitialFieldState } from "../hooks/useLiveValidation";
 import { updateState } from "../utils/updateState";
 import Alert from "../lib/Alert";
 import { addAsyncUserCustomWord } from "../lib/api";
-import AppStateInterface from "../data/types/AppStateInterface";
-import AppStateContext from "../context/AppStateContext";
+import { AppStateInterface } from "../data/types/AppStateInterface";
+import { AppStateContext } from "../context/AppStateContext";
 import { AppAction } from "../data/actions/AppAction";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import WordsSubMenu from "../components/learning-words-layout/WordsSubMenu";
 import { UserWord } from "../data/models";
 

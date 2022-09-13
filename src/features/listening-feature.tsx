@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
 import ListeningPopup from "../components/shared/ListeningPopup";
-import WordsPageState from "../data/types/WordsPageState";
-import WordsPageStateContext from "../context/WordsPageStateContext";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { WordsPageState } from "../data/types/WordsPageState";
+import { WordsPageStateContext } from "../context/WordsPageStateContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import { LANGS } from "../data/constants";
 import { AppAction } from "../data/actions/AppAction";
 import { speak } from "../utils/speak";

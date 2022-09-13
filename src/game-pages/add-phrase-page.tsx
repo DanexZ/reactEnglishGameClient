@@ -7,11 +7,11 @@ import { useInitialFieldState } from "../hooks/useLiveValidation";
 import { updateState } from "../utils/updateState";
 import Alert from "../lib/Alert";
 import { addAsyncUserPhrase } from "../lib/api";
-import AppStateInterface from "../data/types/AppStateInterface";
-import AppStateContext from "../context/AppStateContext";
+import { AppStateInterface } from "../data/types/AppStateInterface";
+import { AppStateContext } from "../context/AppStateContext";
 import { Phrase } from "../data/models";
 import { AppAction } from "../data/actions/AppAction";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 
 const AddPhrasePage = () => {
 

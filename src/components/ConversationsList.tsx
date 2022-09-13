@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import { AppAction } from "../data/actions/AppAction";
 import { Conversation } from "../data/models";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import { useInitialFieldState, useLiveValidation } from "../hooks/useLiveValidation";
 import Alert from "../lib/Alert";
 import { createAsyncConversation } from "../lib/api";

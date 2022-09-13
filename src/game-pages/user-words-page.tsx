@@ -1,13 +1,13 @@
-import React, { useContext, useState } from "react";
-import AppStateContext from "../context/AppStateContext";
-import WordsPageStateContext from "../context/WordsPageStateContext";
+import { useContext } from "react";
+import { AppStateContext } from "../context/AppStateContext";
+import { WordsPageStateContext } from "../context/WordsPageStateContext";
 import SinglePageWrapper from "../components/shared/SinglePageWrapper";
 import WordsPageDashboard from "../components/learning-words-layout/WordsPageDashboard";
 import WordsList from "../components/learning-words-layout/WordsList";
 import Pagination from "../components/shared/Pagination/Pagination";
 import { usePagination } from "../hooks/usePagination";
-import WordsPageState from "../data/types/WordsPageState";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { WordsPageState } from "../data/types/WordsPageState";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import ListeningFeature from "../features/listening-feature";
 import TrainingWordFeature from "../features/training-word-feature";
 import WordsSubMenu from "../components/learning-words-layout/WordsSubMenu";

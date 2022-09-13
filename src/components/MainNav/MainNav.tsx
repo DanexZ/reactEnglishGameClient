@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import AppDispatchContext from "../../context/AppDispatchContext";
-import AppStateContext from "../../context/AppStateContext";
+import { AppDispatchContext } from "../../context/AppDispatchContext";
+import { AppStateContext } from "../../context/AppStateContext";
 import { AppAction } from "../../data/actions/AppAction";
 import { PAGES } from "../../data/constants";
-import AppStateInterface from "../../data/types/AppStateInterface";
+import { AppStateInterface } from "../../data/types/AppStateInterface";
 import "./MainNav.scss";
 
 const MainNav = () => {

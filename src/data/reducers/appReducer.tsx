@@ -1,4 +1,4 @@
-import AppStateInterface from "../types/AppStateInterface";
+import { AppStateInterface } from "../types/AppStateInterface";
 import { AppAction } from "../actions/AppAction";
 import { SCREEN_NAMES } from "../constants";
 import { calculateEfficiency } from "../../utils/calculateEfficiency";

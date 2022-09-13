@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import AppStateContext from "../context/AppStateContext";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateContext } from "../context/AppStateContext";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import DialogueFeature from "../features/dialogue-feature";
 import { SingleDialogue } from "../components/dialogues-layout/SingleDialogue";
 import { useSpeechRecognition } from "../hooks/useSpeechRecognition";

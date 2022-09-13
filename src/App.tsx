@@ -1,21 +1,21 @@
 import React, { useEffect } from "react";
 import { useImmerReducer } from "use-immer";
 import { appReducer } from "./data/reducers/appReducer";
-import AppStateContext from "./context/AppStateContext";
-import AppDispatchContext from "./context/AppDispatchContext";
+import { AppStateContext } from "./context/AppStateContext";
+import { AppDispatchContext } from "./context/AppDispatchContext";
 
 import { SCREEN_NAMES, PAGES } from "./data/constants";
-import { NotLoggedScreen } from "./screens/not-logged-screen";
-import { LoggingScreen } from "./screens/logging-screen";
-import { RegisterScreen } from "./screens/register-screen";
-import { GameMenuScreen } from "./screens/game-menu-screen";
-import { SettingsScreen } from "./screens/settings-screen";
-import { DataLoadingScreen } from "./screens/data-loading-screen";
-import { GameStartingScreen } from "./screens/game-starting-screen";
+import NotLoggedScreen from "./screens/not-logged-screen";
+import LoggingScreen from "./screens/logging-screen";
+import RegisterScreen from "./screens/register-screen";
+import GameMenuScreen from "./screens/game-menu-screen";
+import SettingsScreen from "./screens/settings-screen";
+import DataLoadingScreen from "./screens/data-loading-screen";
+import GameStartingScreen from "./screens/game-starting-screen";
 import PPScreen from "./screens/pp-screen";
 
 import { User } from "./data/models";
-import AppStateInterface from "./data/types/AppStateInterface";
+import { AppStateInterface } from "./data/types/AppStateInterface";
 
 import "./assets/global/common.css";
 import "./assets/style.scss";

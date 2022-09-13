@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import AppStateContext from "../context/AppStateContext";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppStateContext } from "../context/AppStateContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import { addAsyncCorrectness, addAsyncUserEvent, addAsyncUserMessage, addAsyncUserWord, createAsyncTestWords, createAsyncUserTest, saveAsyncUserDay, updateAsyncTestWord, updateAsyncUserLevel, updateAsyncUserLifes, updateAsyncUserPoints, updateAsyncUserTest } from "../lib/api";
 import { addAsyncMistake } from "../lib/api";
 import { AppAction } from "../data/actions/AppAction";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import Alert from "../lib/Alert";
 import { SCREEN_NAMES, SOUNDS } from "../data/constants";
 import { TestWord, UserDay, UserTest, UserWord } from "../data/models";

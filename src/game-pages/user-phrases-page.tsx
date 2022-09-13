@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { usePagination } from "../hooks/usePagination";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import PhrasesPageLayout from "../layouts/phrases-page-layout";
-import AppStateContext from "../context/AppStateContext";
+import { AppStateContext } from "../context/AppStateContext";
 
 
 const UserPhrasesPage = () => {

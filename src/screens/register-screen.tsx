@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import { SCREEN_NAMES } from "../data/constants";
 import { RegisterForm } from "../components/RegisterForm";
 import { AppAction } from "../data/actions/AppAction";
@@ -8,7 +8,7 @@ import TransparentBox from "../components/shared/TransparentBox/TransparentBox";
 import Popup from "../components/shared/Popup/Popup";
 
 
-export const RegisterScreen = () => {
+const RegisterScreen = () => {
 
     const appDispatch = useContext(AppDispatchContext);
 
@@ -28,3 +28,5 @@ export const RegisterScreen = () => {
         </FixedScreenWrapper>
     )
 }
+
+export default RegisterScreen

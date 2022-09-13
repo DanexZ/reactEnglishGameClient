@@ -1,12 +1,12 @@
 import React, { useContext, useEffect, useState, useMemo, useRef } from "react";
 import InitialTestRow from "../components/tests-page-layout/InitialTestRow";
 import TalkingContainer from "../components/TalkingContainer/TalkingContainer";
-import AppDispatchContext from "../context/AppDispatchContext";
-import AppStateContext from "../context/AppStateContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
+import { AppStateContext } from "../context/AppStateContext";
 import { AppAction } from "../data/actions/AppAction";
 import { ANIMATIONS, SOUNDS } from "../data/constants";
 import { TestWord, UserTest, UserWord } from "../data/models";
-import AppStateInterface from "../data/types/AppStateInterface";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import { SpeakJustSay, SpeakUsingTalkingContainer } from "../data/types/SpeakData";
 import { TestFeatureInterface } from "../game-pages/tests-page/tests-page";
 import { useSavingHandlers } from "../hooks/useSavingHandlers";

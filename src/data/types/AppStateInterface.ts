@@ -1,6 +1,6 @@
 import { User } from "../models"
 
-export default interface AppStateInterface {
+export interface AppStateInterface {
     isLogged: Boolean
     flashMessages: string[]
     user: User 

@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import SinglePageWrapper from "../../components/shared/SinglePageWrapper";
-import AppStateContext from "../../context/AppStateContext";
+import { AppStateContext } from "../../context/AppStateContext";
 import { User } from "../../data/models";
-import AppStateInterface from "../../data/types/AppStateInterface";
+import { AppStateInterface } from "../../data/types/AppStateInterface";
 import "./RankingPage.scss";
 
 const RankingPage = () => {

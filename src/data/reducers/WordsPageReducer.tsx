@@ -1,7 +1,7 @@
 import { WordsPageAction } from "../actions/WordsPageAction";
-import WordsPageState from "../types/WordsPageState";
+import { WordsPageState } from "../types/WordsPageState";
 
-const WordsPageReducer = (draftState: WordsPageState, action: WordsPageAction) => {
+export const WordsPageReducer = (draftState: WordsPageState, action: WordsPageAction) => {
     switch (action.type) {
 
         case "setTrainedWord":
@@ -32,5 +32,3 @@ const WordsPageReducer = (draftState: WordsPageState, action: WordsPageAction) =
             return draftState;
     }
 }
-
-export default WordsPageReducer

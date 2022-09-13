@@ -1,5 +1,5 @@
-import React, { FC, useContext } from "react";
-import AppDispatchContext from "../context/AppDispatchContext";
+import React, { useContext } from "react";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import { SCREEN_NAMES } from "../data/constants";
 import Tile3d from "../components/shared/Tile3d/Tile3d";
 import { AppAction } from "../data/actions/AppAction";
@@ -8,7 +8,7 @@ import FixedScreenWrapper from "../components/shared/FixedScreenWrapper/FixedScr
 import GameMenu from "../components/GameMenu/GameMenu";
 
 
-export const GameMenuScreen: FC = () => {
+const GameMenuScreen = () => {
     
     const appDispatch = useContext(AppDispatchContext);
 
@@ -52,6 +52,8 @@ export const GameMenuScreen: FC = () => {
         </FixedScreenWrapper>
     )
 }
+
+export default GameMenuScreen
 
 {/*<div id="box1" className="box-wrapper">
                 <div className="box">

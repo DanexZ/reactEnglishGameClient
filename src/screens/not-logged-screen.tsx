@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import AppDispatchContext from "../context/AppDispatchContext";
+import { AppDispatchContext } from "../context/AppDispatchContext";
 import { SCREEN_NAMES } from "../data/constants";
 import Tile3d from "../components/shared/Tile3d/Tile3d";
 import { AppAction } from "../data/actions/AppAction";
@@ -7,7 +7,7 @@ import { LogIn, Accessibility } from 'react-ionicons';
 import FixedScreenWrapper from "../components/shared/FixedScreenWrapper/FixedScreenWrapper";
 import GameMenu from "../components/GameMenu/GameMenu";
 
-export const NotLoggedScreen: React.FC = () => {
+const NotLoggedScreen = () => {
 
     const appDispatch = useContext(AppDispatchContext);
 
@@ -35,3 +35,5 @@ export const NotLoggedScreen: React.FC = () => {
         </FixedScreenWrapper>
     )
 }
+
+export default NotLoggedScreen

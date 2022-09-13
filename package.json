@@ -1,5 +1,6 @@
 {
   "name": "englishgame",
+  "homepage": "https://englishgame.moneyu.pl",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

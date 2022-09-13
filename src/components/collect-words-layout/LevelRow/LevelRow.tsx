@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import AppDispatchContext from "../../../context/AppDispatchContext";
-import AppStateContext from "../../../context/AppStateContext";
+import { AppDispatchContext } from "../../../context/AppDispatchContext";
+import { AppStateContext } from "../../../context/AppStateContext";
 import { AppAction } from "../../../data/actions/AppAction";
 import { SOUNDS } from "../../../data/constants";
-import AppStateInterface from "../../../data/types/AppStateInterface";
+import { AppStateInterface } from "../../../data/types/AppStateInterface";
 import { SpeakJustSay } from "../../../data/types/SpeakData";
 import { useSavingHandlers } from "../../../hooks/useSavingHandlers";
 import { speak } from "../../../utils/speak";

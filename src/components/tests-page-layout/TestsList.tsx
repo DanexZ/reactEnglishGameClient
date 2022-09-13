@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import AppStateInterface from "../../data/types/AppStateInterface";
-import AppStateContext from "../../context/AppStateContext";
+import { AppStateInterface } from "../../data/types/AppStateInterface";
+import { AppStateContext } from "../../context/AppStateContext";
 import { createTestsRow } from "../../utils/createTestsRows";
 import { useSavingHandlers } from "../../hooks/useSavingHandlers";
 

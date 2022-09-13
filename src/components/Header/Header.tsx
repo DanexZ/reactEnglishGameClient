@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
-import AppStateContext from "../../context/AppStateContext";
-import AppDispatchContext from "../../context/AppDispatchContext";
-import AppStateInterface from "../../data/types/AppStateInterface";
+import { AppStateContext } from "../../context/AppStateContext";
+import { AppDispatchContext } from "../../context/AppDispatchContext";
+import { AppStateInterface } from "../../data/types/AppStateInterface";
 import { AppAction } from "../../data/actions/AppAction";
 import { calculateUserEfficiency } from "../../utils/calculateUserEfficiency";
 import { ANIMATIONS, PAGES } from "../../data/constants";
