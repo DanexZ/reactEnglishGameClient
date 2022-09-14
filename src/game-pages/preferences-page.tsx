@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SinglePageWrapper from "../components/shared/SinglePageWrapper";
 import { MusicalNotes, Mail } from "react-ionicons";
+import TransparentBox from "../components/shared/TransparentBox/TransparentBox";
 
 const PreferencesPage = () => {
 
@@ -16,7 +17,7 @@ const PreferencesPage = () => {
         <SinglePageWrapper>
             <div className="blueBar flex raisedText">Your preferences</div>
 
-            <div className="content">
+            <TransparentBox extraClass="noPopup">
                 <ul className="settingsRows">
                     <li className="settingsRow">
 
@@ -47,7 +48,7 @@ const PreferencesPage = () => {
                         </div>
                     </li>
                 </ul>
-            </div>
+            </TransparentBox>
 
         </SinglePageWrapper>
     )

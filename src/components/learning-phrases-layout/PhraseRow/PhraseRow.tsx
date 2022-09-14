@@ -60,10 +60,10 @@ const PhraseRow = ({phrase}: {phrase: Phrase}) => {
     return(
         <React.Fragment>
             <div key={`${phrase.name}element`} className="elementRow">
-                <div style={{color: "#fff"}}>{phrase.name}</div>
+                <div className="phrase">{phrase.name}</div>
                 <div className="buttons">
                     <button className="btn" onClick={handleSpeak}>
-                        <Mic color={"#FFF"} style={{ verticalAlign: 'middle' }} />
+                        <Mic height={"1rem"} color={"#FFF"} style={{ verticalAlign: 'middle' }} />
                     </button>
                     <button className="btn" onClick={unrollTranscription}>Transcription</button>
                     {phrase.user_id !== null && <button className="btn btnRed" onClick={handleDelete}>Delete</button>} 

@@ -5,3 +5,14 @@
     }
     
 }
+
+.phrase {
+    color: #fff;
+    padding-right: .5rem;
+}
+
+@media (max-width: 479px) {
+    .phrase {
+        text-align: center;
+    }
+}

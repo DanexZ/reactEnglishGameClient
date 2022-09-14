@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 .7rem;
+    padding: .5rem .8rem;
     position: relative;
     display: inline-block;
     background: #3e6edf;
@@ -10,8 +10,7 @@
     border-radius: 3px;
     border: 0;
     cursor: pointer;
-    height: 1.9rem;
-    font-size: .8rem;
+    font-size: 1rem;
 }
 
 .btn:hover {
@@ -21,28 +20,3 @@
 .btnRed {
     background: rgb(255, 58, 58);
 }
-
-
-@media( max-width: 479px ){
-    .btn {
-        font-size: .8rem;
-        padding: .5rem .8rem;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -4,7 +4,7 @@ import { Mic } from "react-ionicons";
 const MicBtn = ({micBtnRef}: any) => {
     return (
         <button ref={micBtnRef} className="btn btn_blue">
-            <Mic color={"#FFF"} style={{ verticalAlign: 'middle' }} />
+            <Mic height={"1rem"} color={"#FFF"} style={{ verticalAlign: 'middle' }} />
         </button>
     )
 }

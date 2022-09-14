@@ -33,7 +33,7 @@ const DialoguesPage = () => {
     return (
         <SinglePageWrapper additionClasses="dialoguesPage">
             {appState.chosenDialogue > 0 && <DialogueFeature recognition={recognition} micBtnRef={micBtnRef} />} 
-            {appState.chosenDialogue === 0 && rowsOnPage.map(({dialogue, elementIndex}: {dialogue: Dialogue, elementIndex: number}) => <SingleDialogue key={dialogue.title} elementIndex={elementIndex} title={dialogue.title} />)}
+            {appState.chosenDialogue === 0 && rowsOnPage.map(({dialogue, elementIndex}: {dialogue: Dialogue, elementIndex: number}) => <SingleDialogue key={dialogue.name} elementIndex={elementIndex} title={dialogue.name} />)}
             <Pagination pagination={pagination} currentPageIndex={currentPageIndex} />
         </SinglePageWrapper>
     )

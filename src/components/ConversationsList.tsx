@@ -80,13 +80,14 @@ const ConversationsList = ({appState, setConversation} : {appState: AppStateInte
 
     return (
         <SinglePageWrapper>
-            <div className="blueBar flex raisedText">
+            <div className="blueBar flex raisedText center">
                 Jeśli dostrzegasz pewne błędy w aplikacji powiadom nas o tym
             </div>
 
             <TransparentBox extraClass="noPopup">
 
                 <h3>Nowa wiadomość</h3>
+
                 <div className="inputBox">
                     <div ref={conversationTitle.errorRef} className="alert alert-danger small liveValidateMessage">{conversationTitle.error}</div> 
                     <input

@@ -28,3 +28,12 @@
         background: rgba(52, 134, 23, 0.8);
     }
 }
+
+
+@media ( max-width: 479px ) {
+    .pagination {
+        .pill {
+            width: 10%;
+        }
+    }
+}

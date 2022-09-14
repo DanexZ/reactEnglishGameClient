@@ -1,7 +1,7 @@
 .levelRow {
 
     .rowNumber {
-        top: 50px;
+        top: 2.5rem;
     }
 
     position: relative;
@@ -46,42 +46,15 @@
 
 
 
-
-/*#inner-level .content{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-#inner-level .scene{
-    margin: 20px 0 0 0;
-}
-
-#inner-level .secretWordsBottom{
-    min-height: 160px;
-}
-
-#remainingWords{
-    margin-left : 10px;
-}
-
-#winner-box{
-    min-height: 291px;
-}
-
-#winner-box .wordButtons{
-    margin-top: 30px;
-}*/
-
 @media(max-width: 1049px){
 
     .levelRow {
         .requirements {
             width: 70%;
-        }
-    
-        p {
-            width: 48%;
+
+            p {
+                width: 48%;
+            }
         }
     }
 
@@ -93,10 +66,6 @@
 @media( max-width: 767px ){
 
     .levelRow {
-        .rowNumber {
-            top: 25px;
-            left: 30px;
-        }
 
         .requirements {
             width: 80%;
@@ -112,13 +81,18 @@
 @media( max-width: 479px ){
 
     .levelRow {
+
         .rowNumber {
-            top: 12px;
-            left: 25px;
+            left: 1rem;
         }
 
         .requirements {
-            width: 95%;
+            width: 100%;
+            flex-direction: column;
+
+            p {
+                width: 80%;
+            }
         }
 
         img {
@@ -126,9 +100,4 @@
         }
     }
 
-
-
-    /*#inner-level .scene{
-        margin: 15px 0 0 0;
-    }*/
 }

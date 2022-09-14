@@ -56,7 +56,7 @@ export interface Sentence {
 
 export interface Dialogue {
     id: number
-    title: string
+    name: string
     sentences: Sentence[]
 }
 

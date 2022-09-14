@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     width: 100%;
     min-height: 100vh;
+    background-color: rgba(0,0,0, .3);
 
     .transparentBox {
         min-width: 400px;
@@ -13,10 +14,6 @@
 
 .biggerBox {
     width: 600px;
-}
-
-.smallBox {
-    width: 400px;
 }
 
 .rowNumber {
@@ -215,7 +212,7 @@
 
 #board{
     min-height: 100vh;
-    padding-bottom: 80px;
+    padding-bottom: 6.5rem;
 }
 
 .singlePage{
@@ -441,7 +438,6 @@
 
 .settingsRows {
     color: #fff;
-    padding: 0 1.5rem;
 }
 
 .settingsRow,
@@ -522,17 +518,16 @@
     .arrowLeft{
         top: calc(50% - 40px);
     }
-
-    .settingsRows{
-        padding: 0 20px;
-    }
-
     
 }
 
-@media( max-width: 479px ){
-    html{
+@media ( max-width: 479px ) {
+    html {
         font-size: 14px;
+    }
+
+    .elementRow {
+        padding: .6rem 1.2rem;
     }
 
     .boxes-wrapper {

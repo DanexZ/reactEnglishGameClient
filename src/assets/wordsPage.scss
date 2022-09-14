@@ -3,7 +3,7 @@
 }
 
 .wordsPage .front:hover,
-.secretWords .front:hover{
+.secretWords .front:hover {
     background: #dd4b39;
     color: white;
     cursor: pointer;
@@ -30,7 +30,7 @@
 }
 
 .memoryExercise,
-.wordsOptions{
+.wordsOptions {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -39,11 +39,9 @@
 }
 
 
-
-.content .word{
+.content .word {
     margin-top: 15px;
 }
-
 
 
 .wordName {
@@ -51,27 +49,27 @@
 }
 
 .correctnesses,
-.mistakes{
+.mistakes {
     position: absolute;
     height: 25px;
     top: 0;
 }
 
 .correctnesses img,
-.mistakes > img{
+.mistakes > img {
     width: 15px;
     height: auto;
 }
 
-.correctnesses{
+.correctnesses {
     left: 5px;
 }
 
-.mistakes{
+.mistakes {
     right: 2px;
 }
 
-.wordPower{
+.wordPower {
     position: absolute;
     bottom: 8px;
     text-align: center;
@@ -79,11 +77,11 @@
     font-size: 11px;
 }
 
-.transcriptions{
-    margin-left: 20px;
+.transcriptions {
+    margin-left: 1rem;
 }
 
-.transcription{
+.transcription {
     color: white;
     font-weight: 700;
     margin-left: 8px;
@@ -106,7 +104,14 @@
 }
 
 .wordTranscriptions{
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+    .transcription {
+        text-align: center;
+        margin-left: 0!important;
+        margin-bottom: .5rem;
+    }
 }
 
 #cls,
@@ -167,6 +172,25 @@
 }
 
 @media(max-width: 479px){
+
+    .wordsPage {
+
+        .blueBar {
+            >div:nth-child(1) {
+                width: 67%;
+            }
+
+            >div:nth-child(2){
+                width: 33%;
+            }
+        }
+
+        .elementRow {
+            .transcriptions {
+                display: none;
+            }
+        }
+    }
 
     .wordsView .scene{
         margin: 0 0 0 20px;

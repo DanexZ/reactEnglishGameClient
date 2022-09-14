@@ -75,7 +75,7 @@ const LevelRow = (props: Props) => {
             <div className="center">
 
                 {!props.isLevelUnlocked &&
-                    <span>Requirements:</span>
+                    <div>Requirements:</div>
                 }
 
                 {props.isLevelUnlocked && !props.isLevelFinished &&

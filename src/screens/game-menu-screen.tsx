@@ -43,7 +43,7 @@ const GameMenuScreen = () => {
                 
                 <li onClick={() => handleTabAction({type: "logout"})}>
                     <Tile3d cssClass="static">
-                        <div className="Power">
+                        <div className="wordName">
                             <Power style={{ verticalAlign: 'middle' }} /> Log out
                         </div>
                     </Tile3d>
