@@ -73,8 +73,9 @@ header {
 @media( max-width: 479px ){
 
     header {
+
         .container {
-            max-width: 316px;
+            max-width: 92%;
             font-size: 11px;
             padding: 5px 6px;
         }

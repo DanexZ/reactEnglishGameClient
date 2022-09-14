@@ -15,9 +15,8 @@ const GameMenuScreen = () => {
 
     const handleTabAction: Function = (action: AppAction) => appDispatch(action);
 
-    useEffect(() => {
-        checkPermissions();
-    }, []);
+    useEffect(() => checkPermissions(), []);
+    
 
     return (
         <FixedScreenWrapper>
@@ -59,21 +58,3 @@ const GameMenuScreen = () => {
 }
 
 export default GameMenuScreen
-
-{/*<div id="box1" className="box-wrapper">
-                <div className="box">
-                    <span className="exit">X</span>
-                    <h2>Twoja przeglądarka nie posiada funkcji rozpoznawania mowy, która jest kluczowa do działania aplikacji<br/>
-                        Rekomendujemy doinstalowanie najnowszego Chrome</h2>
-                    <a href="https://goo.gl/FUvC3A" target="blank">
-                        <button className="btn btn_blue">Instaluj Chrome</button></a>
-                </div>
-            </div>
-        
-            <div id="box2" className="box-wrapper">
-                <div className="box">
-                    <span className="exit">X</span>
-                    <h2>Posiadasz przestarzałą wersję przeglądarki, która nie posiada funkcji speechSynthesis.<br/>
-                        Zaktualizuj swój Chrome i załaduj od nowa tą stronę aby móc uczyć się angielskiego poprzez mówienie.</h2>
-                </div>
-            </div>*/}

@@ -2,20 +2,34 @@ import { typing } from "./typing";
 import { chunkTextIntoSentences } from "./chunkTextIntoSentences";
 import { SOUNDS } from "../data/constants";
 import { LANGS } from "../data/constants";
+import Alert from "../lib/Alert";
 /* eslint-disable */
 const {Howl, Howler} = require('howler');
 /* eslint-enable */
+
 
 
 export const speak = (data: any) => {
 
     const sentences = chunkTextIntoSentences(data.txtToSay);
     const msg = new SpeechSynthesisUtterance();
+
+    const synth = window.speechSynthesis;
+
     msg.lang = data.lang || LANGS.US;
     msg.rate = 0.85;
     msg.text = sentences[0];
+    msg.volume = 1;
 
-    const synth = window.speechSynthesis;
+   
+    synth.onvoiceschanged = (e: any) => {
+    
+        if (e.speaking) {
+            new Alert("warning", `Jeżeli widzisz ten błąd to znaczy, że nie udało się ustawić głosu.
+             Uruchom aplikację w wersji desktopowej na przeglądarce Chrome.`);
+        }
+    }
+
 
 
     msg.onstart = () => {
@@ -81,5 +95,15 @@ export const speak = (data: any) => {
     }
 
     synth.speak(msg);
+
+    setTimeout(() => {
+        const voices = synth.getVoices();
+
+        if (!voices.length) {
+            new Alert("warning", `Jeżeli widzisz ten błąd to znaczy, że nie udało się ustawić głosu. 
+            Uruchom aplikację w wersji desktopowej na przeglądarce Chrome.`);
+        }
+
+    }, 150);
 
 }

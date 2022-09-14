@@ -14,9 +14,6 @@ export const trainSentences = (listenData: any) => {
         txtToSay: sentence.name,
         callbacks: [ () => { 
 
-            console.log("sentenceIndex");
-            console.log(listenData.sentenceIndex)
-
             if (listenData.featureStage === 2 && !listenData.sentences[listenData.sentenceIndex + 1]) {
 
                 window.scrollBy(0, -listenData.userSpeechRefs[sentence.id].current.parentElement.offsetHeight * listenData.sentences.length);
