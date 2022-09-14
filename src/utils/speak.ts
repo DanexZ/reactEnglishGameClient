@@ -16,8 +16,6 @@ export const speak = (data: any) => {
     msg.text = sentences[0];
 
     const synth = window.speechSynthesis;
-    synth.cancel();
-
 
 
     msg.onstart = () => {

@@ -37,7 +37,7 @@ const PhraseRow = ({phrase}: {phrase: Phrase}) => {
             callbacks: []
         }
         
-        speak(data)
+        speak(data);
     }
 
 
