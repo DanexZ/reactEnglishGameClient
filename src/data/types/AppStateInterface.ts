@@ -22,5 +22,6 @@ export interface AppStateInterface {
     startedTest: boolean
     interval: ReturnType<typeof setInterval>
     timeout: ReturnType<typeof setTimeout>
-    recognition: any
+    recognition: any,
+    emailToken: string
 }

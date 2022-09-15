@@ -51,3 +51,4 @@ export type AppAction =
     | { type: "setRecognitionInstance"; payload: any}
     | { type: "addUserWordCorrectness", payload: {initialIndex: number, created_at: string}}
     | { type: "addUserWordMistake", payload: {initialIndex: number, created_at: string}}
+    | { type: "setEmailToken", payload: string}

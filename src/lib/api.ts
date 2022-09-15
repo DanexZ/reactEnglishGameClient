@@ -108,6 +108,12 @@ export const getAsyncConversations =
 export const loginAsync = 
     (login: string, password: string, requestHandler: RequestHandler) => post("/login", {login, password}, requestHandler);
 
+export const resetAsyncPassword = 
+    (email: string, requestHandler: RequestHandler) => post("/resetPassword", { email }, requestHandler);
+
+export const changeAsyncPassword = 
+    (email_token: string, password: string, user_id: number, requestHandler: RequestHandler) => post("/changePassword", { email_token, password, user_id }, requestHandler);
+
 export const checkAsyncWord = 
     (user_id: number, word: string, token: string, requestHandler: RequestHandler) => post(`/word/${word}`, { user_id }, requestHandler, token);
 

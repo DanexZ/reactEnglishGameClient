@@ -212,13 +212,13 @@
 
 #board{
     min-height: 100vh;
-    padding-bottom: 6.5rem;
+    padding-bottom: 1px;
 }
 
 .singlePage{
     position: relative;
     width: 1000px;
-    margin: 0 auto;
+    margin: 0 auto 6.5rem auto;
 }
 
 .content{

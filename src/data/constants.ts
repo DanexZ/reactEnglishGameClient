@@ -6,7 +6,8 @@ export const SCREEN_NAMES = {
     SETTINGS: "SettingsScreen",
     GAME_INDEX: "GameStartingSreen",
     DATA_LOADER: "DataLoadingScreen",
-    PP: "pp"
+    PP: "pp",
+    CHANGE_PASSWORD: "ChangePasswordScreen"
 };
 
 

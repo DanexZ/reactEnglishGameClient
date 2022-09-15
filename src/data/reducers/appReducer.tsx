@@ -212,6 +212,10 @@ export const appReducer = (draftState: AppStateInterface, action: AppAction) => 
             draftState.recognition = action.payload;
             break;
 
+        case "setEmailToken":
+            draftState.emailToken = action.payload;
+            break;
+
         case "addUserWordCorrectness":
 
             wordIndex = action.payload.initialIndex;

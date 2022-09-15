@@ -1,21 +1,12 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useImmerReducer } from "use-immer";
 import { appReducer } from "./data/reducers/appReducer";
 import { AppStateContext } from "./context/AppStateContext";
 import { AppDispatchContext } from "./context/AppDispatchContext";
-
 import { SCREEN_NAMES, PAGES } from "./data/constants";
-import NotLoggedScreen from "./screens/not-logged-screen";
-import LoggingScreen from "./screens/logging-screen";
-import RegisterScreen from "./screens/register-screen";
-import GameMenuScreen from "./screens/game-menu-screen";
-import SettingsScreen from "./screens/settings-screen";
-import DataLoadingScreen from "./screens/data-loading-screen";
-import GameStartingScreen from "./screens/game-starting-screen";
-import PPScreen from "./screens/pp-screen";
-
 import { User } from "./data/models";
 import { AppStateInterface } from "./data/types/AppStateInterface";
+import AppropriateScreen from "./screens/appropriate-screen";
 
 import "./assets/global/common.css";
 import "./assets/style.scss";
@@ -30,7 +21,7 @@ import "./assets/hearts.scss";
 
 
 
-function App() {
+const App = () => {
 
     const user: User = {
         id: Number(localStorage.getItem("englishGame_id")) || 0,
@@ -78,7 +69,8 @@ function App() {
         startedTest: false,
         interval: setInterval(() => {}),
         timeout: setTimeout(() => {}),
-        recognition: null
+        recognition: null,
+        emailToken: ""
     };
 
 
@@ -111,37 +103,14 @@ function App() {
 
 
 
-    if(!appState.isLogged) {
-        return (
-            <AppStateContext.Provider value={appState}>
-                <AppDispatchContext.Provider value={appDispatch}>
-                    <div id="board">
-                        {appState.currentScreen === SCREEN_NAMES.NOTLOGGED && <NotLoggedScreen />}
-                        {appState.currentScreen === SCREEN_NAMES.LOGGING && <LoggingScreen />}
-                        {appState.currentScreen === SCREEN_NAMES.REGISTER && <RegisterScreen />}
-                    </div>
-                    <div className="mountains"></div>
-                </AppDispatchContext.Provider>
-            </AppStateContext.Provider>
-        )
-    }
-
-
+   
     return (
         <AppStateContext.Provider value={appState}>
             <AppDispatchContext.Provider value={appDispatch}>
-                <div id="board">
-                    {appState.currentScreen === SCREEN_NAMES.GAMEMENU && <GameMenuScreen />}
-                    {appState.currentScreen === SCREEN_NAMES.SETTINGS && <SettingsScreen />}
-                    {appState.currentScreen === SCREEN_NAMES.PP && <PPScreen />}
-                    {appState.currentScreen === SCREEN_NAMES.DATA_LOADER && <DataLoadingScreen />}
-                    {appState.currentScreen === SCREEN_NAMES.GAME_INDEX && <GameStartingScreen />}
-                    {/*<div id="player"></div>*/}
-                </div>
-                <div className="mountains"></div>
+                <AppropriateScreen />
             </AppDispatchContext.Provider>
         </AppStateContext.Provider>
-    );
+    )
 }
 
 export default App;

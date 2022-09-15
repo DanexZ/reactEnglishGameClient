@@ -20,6 +20,7 @@ export interface FieldHandlerInterface {
     state: any
     setState: Function
     afterDelayFn?: Function
+    noAsync?: boolean
 }
 
 
@@ -85,7 +86,8 @@ export const useLiveValidation = (inputs: inputs) => {
             }
         }),
         state: email?.state,
-        setState: email?.setState
+        setState: email?.setState,
+        noAsync: email?.noAsync
     }
 
     const passwordProps: FieldHandlerInterface = {
@@ -188,7 +190,7 @@ export const useLiveValidation = (inputs: inputs) => {
             if (errorMsg) return updateState(field.setState, "error", errorMsg);
 
             updateState(field.setState, "error", "");
-            if (field.afterDelayFn) field.afterDelayFn(currentValue);
+            if (field.afterDelayFn && !field.noAsync) field.afterDelayFn(currentValue);
 
         }, 900)
     }

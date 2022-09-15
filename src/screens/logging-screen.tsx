@@ -6,6 +6,7 @@ import { AppAction } from "../data/actions/AppAction";
 import Popup from "../components/shared/Popup/Popup";
 import FixedScreenWrapper from "../components/shared/FixedScreenWrapper/FixedScreenWrapper";
 import TransparentBox from "../components/shared/TransparentBox/TransparentBox";
+import RemindPasswordForm from "../components/RemindPasswordForm";
 
 const LoggingScreen = () => {
 
@@ -45,17 +46,7 @@ const LoggingScreen = () => {
                 </TransparentBox>
 
                 <TransparentBox extraClass="innerBox" refs={innerBoxRef} exitFn={hideInnerBox}>
-
-                    <form method="POST">           
-
-                        <div className="inputBox">
-                            <input type="email" name="email" required />
-
-                            <label>e-mail</label>
-                        </div>
-
-                        <input type="submit" name="" value="Resetuj hasło" />
-                    </form>
+                    <RemindPasswordForm />
                 </TransparentBox>
             </Popup>
         </FixedScreenWrapper>
