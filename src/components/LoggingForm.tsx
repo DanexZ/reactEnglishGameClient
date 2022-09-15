@@ -20,6 +20,7 @@ export const LoggingForm = () => {
 
         loginAsync(login, password, {
             next: (data: any) => {
+                
                 if (data.user && data.user.token) {
                     const action: AppAction = {type: "login", payload: data.user}
                     return appDispatch(action);

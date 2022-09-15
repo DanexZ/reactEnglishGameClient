@@ -8,6 +8,7 @@ import { useInitialFieldState, useLiveValidation } from "../hooks/useLiveValidat
 import Alert from "../lib/Alert";
 import { changeAsyncPassword } from "../lib/api";
 import { updateState } from "../utils/updateState";
+import { useSearchParams } from "react-router-dom";
 
 const ChangePasswordForm = () => {
 
@@ -17,6 +18,8 @@ const ChangePasswordForm = () => {
     const [password, setPassword] = useState(useInitialFieldState());
     const [confirmPassword, setConfirmPassword] = useState(useInitialFieldState());
 
+    const [searchParams, setSearchParams] = useSearchParams();
+
     const { getFormErrors }: any = useLiveValidation({
         
         password: {
@@ -25,7 +28,13 @@ const ChangePasswordForm = () => {
             ...password
         },
 
-        confirmPassword: {
+        fieldToConfirm: {
+            state: password,
+            setState: setPassword,
+            ...password
+        },
+
+        confirmField: {
             state: confirmPassword,
             setState: setConfirmPassword,
             ...confirmPassword
@@ -41,20 +50,39 @@ const ChangePasswordForm = () => {
 
         if (!errors.length) {
 
-            changeAsyncPassword(appState.emailToken, password.value, 0, {
+            changeAsyncPassword(appState.emailToken, password.value, appState.user.id, {
                 next: (data: any) => {
                     if (data.success) {
+                        
                         new Alert("success", "Hasło zostało zmienione. Możesz się teraz za jego pomocą zalogować.", () => {
-                            const action: AppAction = { type: "setCurrentScreen", payload: SCREEN_NAMES.LOGGING }
-                            appDispatch(action);
+
+                            if (appState.emailToken) {
+
+                                console.log(searchParams);
+                                searchParams.delete('token');
+                                setSearchParams(searchParams);
+
+                                const actions: AppAction[] = [
+                                    { type: "setEmailToken", payload: ""},
+                                    { type: "setCurrentScreen", payload: SCREEN_NAMES.LOGGING }
+                                ];
+
+                                appDispatch(actions[0]);
+                                appDispatch(actions[1]);
+
+                            }
+                            
                         });
+
+                        updateState(setPassword, "value", "");
+                        updateState(setConfirmPassword, "value", "");
 
                     } else {
                         new Alert("error", data.error);
                     }
                 },
 
-                errorHandler: (e: string) => new Alert("error", "Coś nie tak. Prosimy spróbować później")
+                errorHandler: (e: string) => new Alert("error", e)
             });
         }
 

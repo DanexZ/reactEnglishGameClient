@@ -40,7 +40,8 @@ export interface inputs {
     userName?: any
     email?: any
     password?: any 
-    confirmPassword?: any
+    fieldToConfirm?: any
+    confirmField?: any
     phrase?: any
     word?: any
     translation?: any
@@ -57,7 +58,8 @@ export const useLiveValidation = (inputs: inputs) => {
     const userName = inputs["userName"];
     const email = inputs["email"];
     const password = inputs["password"];
-    const confirmPassword = inputs["confirmPassword"];
+    const fieldToConfirm = inputs["fieldToConfirm"];
+    const confirmField = inputs["confirmField"];
     const phrase = inputs["phrase"];
     const word = inputs["word"];
     const translation = inputs["translation"];
@@ -96,10 +98,10 @@ export const useLiveValidation = (inputs: inputs) => {
         setState: password?.setState
     }
 
-    const confirmPasswordProps: FieldHandlerInterface = {
-        validator: (currentValue: string) => validateConfirmField(password.ref.current.value, currentValue),
-        state: confirmPassword?.state,
-        setState: confirmPassword?.setState
+    const confirmFieldProps: FieldHandlerInterface = {
+        validator: (currentValue: string) => validateConfirmField(fieldToConfirm.ref.current.value, currentValue),
+        state: confirmField?.state,
+        setState: confirmField?.setState
     }
 
     const phraseProps: FieldHandlerInterface = {
@@ -153,7 +155,7 @@ export const useLiveValidation = (inputs: inputs) => {
     if (userName) fieldsInterfaces.push(userNameProps);
     if (email) fieldsInterfaces.push(emailProps);
     if (password) fieldsInterfaces.push(passwordProps);
-    if (confirmPassword) fieldsInterfaces.push(confirmPasswordProps);
+    if (confirmField) fieldsInterfaces.push(confirmFieldProps);
     if (phrase) fieldsInterfaces.push(phraseProps);
     if (word) fieldsInterfaces.push(wordProps);
     if (translation) fieldsInterfaces.push(translationProps);
@@ -217,7 +219,7 @@ export const useLiveValidation = (inputs: inputs) => {
     useEffect(() => isThereError(userName), [userName?.state.error]);
     useEffect(() => isThereError(email), [email?.state.error]);
     useEffect(() => isThereError(password), [password?.state.error]);
-    useEffect(() => isThereError(confirmPassword), [confirmPassword?.state.error]);
+    useEffect(() => isThereError(confirmField), [confirmField?.state.error]);
     useEffect(() => isThereError(phrase), [phrase?.state.error]);
     useEffect(() => isThereError(word), [word?.state.error]);
     useEffect(() => isThereError(translation), [translation?.state.error]);

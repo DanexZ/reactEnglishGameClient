@@ -4,6 +4,7 @@ import { SCREEN_NAMES } from '../data/constants';
 import { AppAction } from '../data/actions/AppAction';
 import TransparentBox from '../components/shared/TransparentBox/TransparentBox';
 import ChangePasswordForm from '../components/ChangePasswordForm';
+import ChangeEmailForm from '../components/ChangeEmailForm';
 
 const SettingsScreen = () => {
 
@@ -21,18 +22,7 @@ const SettingsScreen = () => {
             </TransparentBox>
     
             <TransparentBox>
-                <h2>Zmiana e-mail</h2>
-                <div className="inputBox">
-                    <input type="email" name="email" required />
-                    <label>Nowy e-mail</label>
-                </div>
-                
-                <div className="inputBox">
-                    <input type="email" name="repeatEmail" required />
-                    <label>Powtórz</label>
-                </div>
-                
-                <input type="submit" value="Zatwierdź" />
+                <ChangeEmailForm />
             </TransparentBox>
         </div>
     )

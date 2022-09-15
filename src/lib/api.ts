@@ -114,6 +114,9 @@ export const resetAsyncPassword =
 export const changeAsyncPassword = 
     (email_token: string, password: string, user_id: number, requestHandler: RequestHandler) => post("/changePassword", { email_token, password, user_id }, requestHandler);
 
+export const changeAsyncEmail = 
+    (user_id: number, email: string, token: string, requestHandler: RequestHandler) => post("/changeEmail", { user_id, email }, requestHandler, token);
+
 export const checkAsyncWord = 
     (user_id: number, word: string, token: string, requestHandler: RequestHandler) => post(`/word/${word}`, { user_id }, requestHandler, token);
 

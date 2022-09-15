@@ -32,7 +32,13 @@ export const RegisterForm = () => {
             ...password
         },
 
-        confirmPassword: {
+        fieldToConfirm: {
+            state: password,
+            setState: setPassword,
+            ...password
+        },
+
+        confirmField: {
             state: confirmPassword,
             setState: setConfirmPassword,
             ...confirmPassword
