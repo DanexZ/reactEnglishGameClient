@@ -94,22 +94,25 @@ const GameStartingScreen = () => {
     return (
         <React.Fragment>
             <Header />
-            <MainNav />
-            
-            {(appState.tutorialStage || (appState.currentTab === PAGES.NONE)) && <TutorialFeature />}
 
-            {appState.currentTab === PAGES.COLLECT && <LevelsPage />}
-            {appState.currentTab === PAGES.DIALOGUES && <DialoguesPage />}
-            {appState.currentTab === PAGES.DIARY && <DiaryPage />}
-            {(appState.currentTab === PAGES.WORDS || appState.currentTab === PAGES.USER_WORDS) && <WordsPageFeature />}
-            {appState.currentTab === PAGES.ADD_CUSTOM_WORD && <AddWordPage />}
-            {appState.currentTab === PAGES.TESTS && <TestsPage />}
-            {appState.currentTab === PAGES.PHRASES && <PhrasesPage />}
-            {appState.currentTab === PAGES.USER_PHRASES && <UserPhrasesPage />}
-            {appState.currentTab === PAGES.ADD_CUSTOM_PHRASE && <AddPhrasePage />}
-            {appState.currentTab === PAGES.RANKING && <RankingPage />}
-            {appState.currentTab === PAGES.PREFERENCES && <PreferencesPage />}
-            {appState.currentTab === PAGES.SUPPORT && <SupportPage />}
+            <div className="mainWrapper">
+                <MainNav />
+                
+                {(appState.tutorialStage || (appState.currentTab === PAGES.NONE)) && <TutorialFeature />}
+
+                {appState.currentTab === PAGES.COLLECT && <LevelsPage />}
+                {appState.currentTab === PAGES.DIALOGUES && <DialoguesPage />}
+                {appState.currentTab === PAGES.DIARY && <DiaryPage />}
+                {(appState.currentTab === PAGES.WORDS || appState.currentTab === PAGES.USER_WORDS) && <WordsPageFeature />}
+                {appState.currentTab === PAGES.ADD_CUSTOM_WORD && <AddWordPage />}
+                {appState.currentTab === PAGES.TESTS && <TestsPage />}
+                {appState.currentTab === PAGES.PHRASES && <PhrasesPage />}
+                {appState.currentTab === PAGES.USER_PHRASES && <UserPhrasesPage />}
+                {appState.currentTab === PAGES.ADD_CUSTOM_PHRASE && <AddPhrasePage />}
+                {appState.currentTab === PAGES.RANKING && <RankingPage />}
+                {appState.currentTab === PAGES.PREFERENCES && <PreferencesPage />}
+                {appState.currentTab === PAGES.SUPPORT && <SupportPage />}
+            </div>
 
             {appState.showBottomNav && <BottomNav />}
         </React.Fragment>

@@ -48,6 +48,12 @@
 }
 
 
+.mainWrapper {
+    width: 75%;
+    margin: auto;
+}
+
+
 .bottomAdditionalBar {
     border-top: 1px solid #fff;
     color: #fff;
@@ -104,6 +110,10 @@
     }
 
     .scene {
+        margin-left: 1rem;
+    }
+
+    .btnRed {
         margin-left: 1rem;
     }
     
@@ -165,6 +175,8 @@
     border-bottom: 1px solid #fff;
     opacity: 0;
     transition: all .2s ease-in-out;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
 }
 
 .content .scene {
@@ -215,9 +227,8 @@
     padding-bottom: 1px;
 }
 
-.singlePage{
+.singlePage {
     position: relative;
-    width: 1000px;
     margin: 0 auto 6.5rem auto;
 }
 
@@ -472,10 +483,6 @@
         font-size: 18px;
     }
 
-    .singlePage{
-        width: 650px;
-    }
-
     .conversations{
         width: 100%;
     }
@@ -497,8 +504,14 @@
         font-size: 16px;
     }
 
-    .singlePage{
-        width: 450px;
+    .mainWrapper {
+        width: 80%;
+    }
+
+    .elementRow {
+        .btnRed {
+            display: none;
+        }
     }
 
     .arrowTop,
@@ -526,6 +539,10 @@
         font-size: 14px;
     }
 
+    .mainWrapper {
+        width: 96%;
+    }
+
     .elementRow {
         padding: .6rem 1.2rem;
     }
@@ -534,10 +551,6 @@
         .transparentBox {
             min-width: 280px;
         }
-    }
-
-    .singlePage{
-        width: 312px;
     }
 
     .slideNav div{

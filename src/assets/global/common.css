@@ -209,10 +209,6 @@ section {
     html{
         font-size: 12px;
     }
-
-    nav{
-        width: 90%;
-    }
 }
 
 @media (max-width: 360px){

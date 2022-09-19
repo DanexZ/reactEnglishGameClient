@@ -30,6 +30,15 @@
 }
 
 
+@media ( max-width: 767px ) {
+    .pagination {
+        .pill {
+            width: 7.5%;
+        }
+    }
+}
+
+
 @media ( max-width: 479px ) {
     .pagination {
         .pill {
