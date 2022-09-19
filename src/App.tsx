@@ -8,14 +8,14 @@ import { User } from "./data/models";
 import { AppStateInterface } from "./data/types/AppStateInterface";
 import AppropriateScreen from "./screens/appropriate-screen";
 
-import "./assets/global/common.css";
+import "./assets/global/common.scss";
 import "./assets/style.scss";
 import "./assets/global/scrollbars.scss";
 import "./assets/global/alerts.scss";
-import "./assets/global/buttons.css";
+import "./assets/global/buttons.scss";
 import "./assets/global/darkCheckbox.scss";
 import "./assets/dialogues.scss";
-import "./assets/statistics.css";
+import "./assets/statistics.scss";
 import "./assets/wordsPage.scss";
 import "./assets/hearts.scss";
 
