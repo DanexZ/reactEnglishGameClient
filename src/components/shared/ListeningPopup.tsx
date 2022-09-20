@@ -1,5 +1,7 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
+import { WordsPageStateContext } from "../../context/WordsPageStateContext";
 import { UserWord } from "../../data/models";
+import { WordsPageState } from "../../data/types/WordsPageState";
 import FixedScreenWrapper from "./FixedScreenWrapper/FixedScreenWrapper";
 import Transcriptions from "./Transcriptions";
 import TransparentBox from "./TransparentBox/TransparentBox";
@@ -7,9 +9,12 @@ import TransparentBox from "./TransparentBox/TransparentBox";
 export interface ListeningProps {
     currentWord: UserWord
     exitFn: Function
+    wordIndex: number
 } 
 
-const ListeningPopup: FC<ListeningProps> = ({currentWord, exitFn}) => {
+const ListeningPopup: FC<ListeningProps> = ({currentWord, exitFn, wordIndex}) => {
+
+    const featureState: WordsPageState = useContext(WordsPageStateContext);
 
     return (
         <FixedScreenWrapper>
@@ -20,7 +25,11 @@ const ListeningPopup: FC<ListeningProps> = ({currentWord, exitFn}) => {
                     <img src="/images/headphones.png" alt="boy with headphones" style={{width: "40%"}} />
                     
                     {currentWord && 
+
                     <div style={{color: "white", fontWeight: "bold", marginTop: "1rem"}}>
+
+                        <strong>{wordIndex+1}/{featureState.learningWords.length}</strong>
+
                         <div>{currentWord.name}</div>
                         <div><Transcriptions translations={currentWord.translations} /></div>
                     </div>}

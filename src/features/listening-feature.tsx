@@ -21,8 +21,14 @@ const ListeningFeature = () => {
 
 
     const exitFn = () => {
-        const action: AppAction = {type: "deactivateListeningFeature"}
-        appDispatch(action)
+
+        const actions: AppAction[] = [
+            {type: "deactivateListeningFeature"},
+            {type: "clearTimeout"}
+        ];
+
+        appDispatch(actions[0]);
+        appDispatch(actions[1]);
     }
 
 
@@ -105,7 +111,8 @@ const ListeningFeature = () => {
     
 
     return <ListeningPopup 
-                currentWord={featureState.learningWords[wordIndex]} 
+                currentWord={featureState.learningWords[wordIndex]}
+                wordIndex={wordIndex} 
                 exitFn={exitFn} 
             />
 }
