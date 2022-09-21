@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { AppDispatchContext } from "../context/AppDispatchContext";
 import { SCREEN_NAMES } from "../data/constants";
-import { RegisterForm } from "../components/RegisterForm";
+import RegisterForm from "../components/RegisterForm/RegisterForm";
 import { AppAction } from "../data/actions/AppAction";
 import FixedScreenWrapper from "../components/shared/FixedScreenWrapper/FixedScreenWrapper";
 import TransparentBox from "../components/shared/TransparentBox/TransparentBox";

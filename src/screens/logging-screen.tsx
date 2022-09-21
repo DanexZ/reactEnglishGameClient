@@ -1,7 +1,7 @@
-import React, { useContext, useRef } from "react";
+import { useContext, useRef } from "react";
 import { AppDispatchContext } from "../context/AppDispatchContext";
 import { SCREEN_NAMES } from "../data/constants";
-import { LoggingForm } from "../components/LoggingForm";
+import LoggingForm from "../components/LoggingForm";
 import { AppAction } from "../data/actions/AppAction";
 import Popup from "../components/shared/Popup/Popup";
 import FixedScreenWrapper from "../components/shared/FixedScreenWrapper/FixedScreenWrapper";

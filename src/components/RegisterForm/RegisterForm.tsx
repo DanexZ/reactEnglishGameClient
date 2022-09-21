@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useInitialFieldState } from "../hooks/useLiveValidation";
-import { useLiveValidation } from "../hooks/useLiveValidation";
-import { registerAsyncAccount } from "../lib/api";
-import Alert from "../lib/Alert";
-import { updateState } from "../utils/updateState";
+import { useInitialFieldState } from "../../hooks/useLiveValidation";
+import { useLiveValidation } from "../../hooks/useLiveValidation";
+import { registerAsyncAccount } from "../../lib/api";
+import Alert from "../../lib/Alert";
+import { updateState } from "../../utils/updateState";
 
-export const RegisterForm = () => {
+const RegisterForm = () => {
 
     const [userName, setUserName] = useState(useInitialFieldState());
     const [email, setEmail] = useState(useInitialFieldState());
@@ -84,6 +84,7 @@ export const RegisterForm = () => {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(setUserName, "value", e.target.value)}
                     required
                     autoFocus 
+                    data-testid="input-userName" 
                 />
                 <label>Nick</label>
             </div>
@@ -128,3 +129,6 @@ export const RegisterForm = () => {
         </form>
     )
 }
+
+
+export default RegisterForm

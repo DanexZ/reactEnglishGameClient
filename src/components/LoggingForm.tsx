@@ -4,7 +4,7 @@ import { AppAction } from "../data/actions/AppAction";
 import Alert from "../lib/Alert";
 import { loginAsync } from "../lib/api";
 
-export const LoggingForm = () => {
+const LoggingForm = () => {
 
     const appDispatch = useContext(AppDispatchContext);
 
@@ -50,3 +50,5 @@ export const LoggingForm = () => {
         </form>
     )
 }
+
+export default LoggingForm
