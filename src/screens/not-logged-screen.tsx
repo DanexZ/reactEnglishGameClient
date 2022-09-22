@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AppDispatchContext } from "../context/AppDispatchContext";
 import { SCREEN_NAMES } from "../data/constants";
 import Tile3d from "../components/shared/Tile3d/Tile3d";
@@ -19,7 +19,7 @@ const NotLoggedScreen = () => {
                 <li onClick={() => handleTabAction({type: "setCurrentScreen", payload: SCREEN_NAMES.LOGGING})}>
                     <Tile3d cssClass="static" onClickFn={() => {}} >
                         <div className="wordName">
-                            <LogIn /> Log in
+                            <LogIn />Log in
                         </div>
                     </Tile3d>
                 </li>
@@ -27,7 +27,7 @@ const NotLoggedScreen = () => {
                 <li onClick={() => handleTabAction({type: "setCurrentScreen", payload: SCREEN_NAMES.REGISTER})}>
                     <Tile3d cssClass="static" onClickFn={() => {}}>
                         <div className="wordName">
-                            <Accessibility /> Register
+                            <Accessibility />Register
                         </div>
                     </Tile3d>
                 </li>
