@@ -148,7 +148,7 @@ export interface RootaText {
 
 export interface UserEvents {
     unlockedLevels: Event[]
-    unlockedDialogues: Boolean
+    unlockedDialogues: boolean
     unlockedTests: Event[]
 }
 

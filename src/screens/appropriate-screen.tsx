@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { SCREEN_NAMES } from "../data/constants";
 import NotLoggedScreen from "../screens/not-logged-screen";
 import LoggingScreen from "../screens/logging-screen";
@@ -14,6 +14,7 @@ import { useLocation } from "react-router-dom";
 import ChangePasswordScreen from "./change-password-screen";
 import { AppDispatchContext } from "../context/AppDispatchContext";
 import { AppAction } from "../data/actions/AppAction";
+import ScreenWrapper from "../components/ScreenWrapper";
 
 
 
@@ -26,6 +27,7 @@ const AppropriateScreen = () => {
 
     const params = new URLSearchParams(location.search);
     const token = params.get("token");
+
 
     useEffect(() => {
 
@@ -44,20 +46,17 @@ const AppropriateScreen = () => {
 
 
     return (
-        <React.Fragment>
-            <div id="board">
-                {appState.currentScreen === SCREEN_NAMES.CHANGE_PASSWORD && <ChangePasswordScreen />}   
-                {appState.currentScreen === SCREEN_NAMES.NOTLOGGED && <NotLoggedScreen />}
-                {appState.currentScreen === SCREEN_NAMES.LOGGING && <LoggingScreen />}
-                {appState.currentScreen === SCREEN_NAMES.REGISTER && <RegisterScreen />}  
-                {appState.currentScreen === SCREEN_NAMES.GAMEMENU && <GameMenuScreen />}
-                {appState.currentScreen === SCREEN_NAMES.SETTINGS && <SettingsScreen />}
-                {appState.currentScreen === SCREEN_NAMES.PP && <PPScreen />}
-                {appState.currentScreen === SCREEN_NAMES.DATA_LOADER && <DataLoadingScreen />}
-                {appState.currentScreen === SCREEN_NAMES.GAME_INDEX && <GameStartingScreen />}
-            </div>
-            <div className="mountains"></div>
-        </React.Fragment>
+        <ScreenWrapper>
+            {appState.currentScreen === SCREEN_NAMES.CHANGE_PASSWORD && <ChangePasswordScreen />}   
+            {appState.currentScreen === SCREEN_NAMES.NOTLOGGED && <NotLoggedScreen />}
+            {appState.currentScreen === SCREEN_NAMES.LOGGING && <LoggingScreen />}
+            {appState.currentScreen === SCREEN_NAMES.REGISTER && <RegisterScreen />}  
+            {appState.currentScreen === SCREEN_NAMES.GAMEMENU && <GameMenuScreen />}
+            {appState.currentScreen === SCREEN_NAMES.SETTINGS && <SettingsScreen />}
+            {appState.currentScreen === SCREEN_NAMES.PP && <PPScreen />}
+            {appState.currentScreen === SCREEN_NAMES.DATA_LOADER && <DataLoadingScreen />}
+            {appState.currentScreen === SCREEN_NAMES.GAME_INDEX && <GameStartingScreen />}
+        </ScreenWrapper>
     )
 }
 

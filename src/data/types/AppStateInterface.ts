@@ -1,7 +1,7 @@
 import { Badge, Dialogue, Phrase, RootaText, User, Word } from "../models"
 
 export interface AppStateInterface {
-    isLogged: Boolean
+    isLogged: boolean
     flashMessages: string[]
     user: User 
     users: User[]
@@ -11,8 +11,8 @@ export interface AppStateInterface {
     dialogues: Dialogue[]
     phrases: Phrase[]
     badges: Badge[]
-    showBottomNav: Boolean
-    showTalkingContainer: Boolean
+    showBottomNav: boolean
+    showTalkingContainer: boolean
     tutorialStage: number
     RootaTexts: RootaText[]
     chosenLevel: number

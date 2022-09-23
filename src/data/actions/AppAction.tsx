@@ -11,7 +11,7 @@ export type AppAction =
     | { type: "setUsers"; payload: User[]}
     | { type: "setUserRanking"; payload: number}
     | { type: "setUserWords"; payload: UserWord[]}
-    | { type: "setUserEvents"; payload: { unlockedLevels: Event[], unlockedTests: Event[], unlockedDialogues: Boolean }}
+    | { type: "setUserEvents"; payload: { unlockedLevels: Event[], unlockedTests: Event[], unlockedDialogues: boolean }}
     | { type: "setUserCustomWords"; payload: UserWord[]}
     | { type: "setUserPhrases"; payload: Phrase[]}
     | { type: "setUserTests"; payload: UserTest[]}
