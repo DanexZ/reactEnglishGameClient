@@ -1,11 +1,12 @@
 header {
+    width: 100%;
     position: relative;
     padding-top: 10px;
 
-    .container {
-        justify-content: center;
+    .statistics {
         display: flex;
-        width: 85%;
+        justify-content: space-around;
+        width: 100%;
         margin: 0 auto;
         padding: 0 16px;
         position: relative;
@@ -13,43 +14,33 @@ header {
         color: white;
         border-radius: 10px;
         margin-bottom: 10px;
+
+        div {
+            position: relative;
+        }
+    
+        li {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 0;
+            padding: 1%;
+            align-items: center;
+            text-align: left;
+        }
+    
+        li:nth-child(1) {
+            cursor: pointer;
+        }
+    }
+
+    .statisticsImg {
+        height: auto;
+        width: 20px;
     }
 }
-
-.statistics {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-
-    div {
-        position: relative;
-    }
-
-    li {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin: 0;
-        padding: 1%;
-        align-items: center;
-        text-align: left;
-    }
-
-    li:nth-child(1) {
-        cursor: pointer;
-    }
-
-}
-
-
-
-.statisticsImg {
-    height: auto;
-    width: 20px;
-}
-
 
 
 
@@ -57,8 +48,7 @@ header {
 @media( max-width: 479px ){
 
     header {
-
-        .container {
+        .statistics {
             width: 98%;
             font-size: 11px;
             padding: 5px 6px;

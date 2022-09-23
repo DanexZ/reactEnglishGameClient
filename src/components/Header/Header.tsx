@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppStateContext } from "../../context/AppStateContext";
 import { AppDispatchContext } from "../../context/AppDispatchContext";
 import { AppStateInterface } from "../../data/types/AppStateInterface";
@@ -83,54 +83,52 @@ const Header = () => {
 
     return (
         <header>
-            <div className="container">
-                <ul className="statistics">
-                    <li onClick={() => setCurrentTab({type: "setCurrentTab", payload: PAGES.RANKING})}>
-                        <div><img className="statisticsImg" src="/images/ranking1.png" /></div>
-                        <div>Ranking</div>
-                        <div>{appState.user.ranking}</div>
-                    </li>
-                    <li>
-                        <div><img className="statisticsImg" src="/images/level1.png" /></div>
-                        <div>Level</div>
-                        <div>{appState.user.level}</div>
-                    </li>
-                    <li>
-                        <div><img className="statisticsImg" src="/images/level2.png" /></div>
-                        <div>Points</div>
-                        <div>
-                            {appState.user.points}
-                            {newPoints > 0 && <span className="points">+{newPoints}</span>}
-                        </div>
+            <ul className="statistics">
+                <li onClick={() => setCurrentTab({type: "setCurrentTab", payload: PAGES.RANKING})}>
+                    <div><img className="statisticsImg" src="/images/ranking1.png" /></div>
+                    <div>Ranking</div>
+                    <div>{appState.user.ranking}</div>
+                </li>
+                <li>
+                    <div><img className="statisticsImg" src="/images/level1.png" /></div>
+                    <div>Level</div>
+                    <div>{appState.user.level}</div>
+                </li>
+                <li>
+                    <div><img className="statisticsImg" src="/images/level2.png" /></div>
+                    <div>Points</div>
+                    <div>
+                        {appState.user.points}
+                        {newPoints > 0 && <span className="points">+{newPoints}</span>}
+                    </div>
 
-                        {appState.tutorialStage === 14 && <img className="arrow arrowLeft" src="/images/arrow-left.png" />}
-                    </li>
-                    <li>
-                        <div><img className="statisticsImg" src="/images/efficiency3.png" /></div>
-                        <div>Efficiency</div>
-                        <div>
-                            {appState.user.efficiency}%
-                            {newEfficiency !== 0 && 
-                                <span className="points" style={(newEfficiency < 0) ? {color: "red"} : {} }>
-                                    {(newEfficiency > 0) ? `+${newEfficiency}` : newEfficiency}
-                                </span>
-                            }
-                        </div>
+                    {appState.tutorialStage === 14 && <img className="arrow arrowLeft" src="/images/arrow-left.png" />}
+                </li>
+                <li>
+                    <div><img className="statisticsImg" src="/images/efficiency3.png" /></div>
+                    <div>Efficiency</div>
+                    <div>
+                        {appState.user.efficiency}%
+                        {newEfficiency !== 0 && 
+                            <span className="points" style={(newEfficiency < 0) ? {color: "red"} : {} }>
+                                {(newEfficiency > 0) ? `+${newEfficiency}` : newEfficiency}
+                            </span>
+                        }
+                    </div>
 
-                        {appState.tutorialStage === 15 && <img className="arrow arrowLeft" src="/images/arrow-left.png" />}
-                    </li>
-                    <li>
-                        {appState.tutorialStage === 2 && <img className="arrow arrowTop" src="/images/arrow-up.png" />}
+                    {appState.tutorialStage === 15 && <img className="arrow arrowLeft" src="/images/arrow-left.png" />}
+                </li>
+                <li>
+                    {appState.tutorialStage === 2 && <img className="arrow arrowTop" src="/images/arrow-up.png" />}
 
-                        <div><img className="statisticsImg" src="images/words2.png" /></div>
-                        <div>Words</div>
-                        <div>
-                            {appState.user.words.length}/3000
-                            {newWord > 0 && <span className="points">+{newWord}</span>}
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                    <div><img className="statisticsImg" src="images/words2.png" /></div>
+                    <div>Words</div>
+                    <div>
+                        {appState.user.words.length}/3000
+                        {newWord > 0 && <span className="points">+{newWord}</span>}
+                    </div>
+                </li>
+            </ul>
         </header>
     )
 }

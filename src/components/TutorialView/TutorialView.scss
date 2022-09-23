@@ -10,15 +10,15 @@
 
         margin-top: 15px;
         border-radius: 50%;
-        width: 200px;
-        height: 200px;
+        width: 10rem;
+        height: 10rem;
         background: rgba(0, 174, 239, .9);
         color: white;
         text-align: center;
         text-shadow: 2px 2px rgba(0,0,0,0.4);
-        line-height: 200px;
+        line-height: 10rem;
         font-size: 2.1rem;
-        box-shadow: 0 0 3.75px #13b3ff, 0 0 11.25px #13b3ff;
+        box-shadow: 0 0 .2rem #13b3ff, 0 0 .6rem #13b3ff;
         animation-name: pressMe;
         animation-duration: 2s;
         animation-iteration-count: infinite;

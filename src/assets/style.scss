@@ -48,9 +48,16 @@
 }
 
 
-.mainWrapper {
+.appLayoutContainer {
     width: 75%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tabContainer {
+    width: 90%;
 }
 
 
@@ -224,6 +231,7 @@
 
 
 .singlePage {
+    width: 100%;
     position: relative;
     margin: 0 auto 6.5rem auto;
 }
@@ -500,7 +508,7 @@
         font-size: 16px;
     }
 
-    .mainWrapper {
+    .appLayoutContainer {
         width: 80%;
     }
 
@@ -539,7 +547,7 @@
         font-size: 14px;
     }
 
-    .mainWrapper {
+    .appLayoutContainer {
         width: 96%;
     }
 

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppStateContext } from "../context/AppStateContext";
 import { AppDispatchContext } from "../context/AppDispatchContext";
 import { AppStateInterface } from "../data/types/AppStateInterface";
@@ -20,6 +20,8 @@ import { AppAction } from "../data/actions/AppAction";
 import AddPhrasePage from "../game-pages/add-phrase-page";
 import UserPhrasesPage from "../game-pages/user-phrases-page";
 import AddWordPage from "../game-pages/add-word-page";
+import AppLayoutContainer from "../components/AppLayoutContainer";
+import TabContainer from "../components/TabContainer";
 
 
 
@@ -27,8 +29,7 @@ const GameStartingScreen = () => {
 
     const appState: AppStateInterface = useContext(AppStateContext);
     const appDispatch = useContext(AppDispatchContext);
-    const [prevPage, setPrevPage] = useState(appState.currentTab); 
-
+    const [prevTab, setPrevTab] = useState(appState.currentTab); 
 
 
     useEffect(() => {
@@ -62,7 +63,7 @@ const GameStartingScreen = () => {
 
     useEffect(() => {
 
-        if (appState.currentTab !== prevPage) {
+        if (appState.currentTab !== prevTab) {
             
             if (appState.recognition) appState.recognition.stop();
 
@@ -72,7 +73,7 @@ const GameStartingScreen = () => {
 
             appDispatch(actions[0]);
             
-            setPrevPage(appState.currentTab);
+            setPrevTab(appState.currentTab);
         }
 
     }, [appState.currentTab]);
@@ -91,19 +92,28 @@ const GameStartingScreen = () => {
 
 
 
-    return (
-        <React.Fragment>
-            <Header />
+    useEffect(() => {
 
-            <div className="mainWrapper">
+
+
+    }, [appState.currentScreen, appState.tutorialStage])
+
+
+
+
+    return (
+        <AppLayoutContainer>
+            <Header />
+            
+            <TabContainer>
                 <MainNav />
-                
+            
                 {(appState.tutorialStage || (appState.currentTab === PAGES.NONE)) && <TutorialFeature />}
+                {(appState.currentTab === PAGES.WORDS || appState.currentTab === PAGES.USER_WORDS) && <WordsPageFeature />}
 
                 {appState.currentTab === PAGES.COLLECT && <LevelsPage />}
                 {appState.currentTab === PAGES.DIALOGUES && <DialoguesPage />}
                 {appState.currentTab === PAGES.DIARY && <DiaryPage />}
-                {(appState.currentTab === PAGES.WORDS || appState.currentTab === PAGES.USER_WORDS) && <WordsPageFeature />}
                 {appState.currentTab === PAGES.ADD_CUSTOM_WORD && <AddWordPage />}
                 {appState.currentTab === PAGES.TESTS && <TestsPage />}
                 {appState.currentTab === PAGES.PHRASES && <PhrasesPage />}
@@ -112,10 +122,10 @@ const GameStartingScreen = () => {
                 {appState.currentTab === PAGES.RANKING && <RankingPage />}
                 {appState.currentTab === PAGES.PREFERENCES && <PreferencesPage />}
                 {appState.currentTab === PAGES.SUPPORT && <SupportPage />}
-            </div>
-
+            </TabContainer>
+            
             {appState.showBottomNav && <BottomNav />}
-        </React.Fragment>
+        </AppLayoutContainer>
     )
 }
 
