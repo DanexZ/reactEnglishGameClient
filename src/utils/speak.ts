@@ -104,6 +104,6 @@ export const speak = (data: any) => {
             Uruchom aplikację w wersji desktopowej na przeglądarce Chrome.`);
         }
 
-    }, 150);
+    }, 800);
 
 }
