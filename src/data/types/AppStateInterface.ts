@@ -1,4 +1,4 @@
-import { User } from "../models"
+import { Badge, Dialogue, Phrase, RootaText, User, Word } from "../models"
 
 export interface AppStateInterface {
     isLogged: Boolean
@@ -7,14 +7,14 @@ export interface AppStateInterface {
     users: User[]
     currentScreen: string
     currentTab: string
-    words: any[]
-    dialogues: any[]
-    phrases: []
-    badges: []
+    words: Word[]
+    dialogues: Dialogue[]
+    phrases: Phrase[]
+    badges: Badge[]
     showBottomNav: Boolean
     showTalkingContainer: Boolean
     tutorialStage: number
-    RootaTexts: {id:number, content:string}[]
+    RootaTexts: RootaText[]
     chosenLevel: number
     chosenDialogue: number
     listening: boolean

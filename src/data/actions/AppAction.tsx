@@ -1,4 +1,4 @@
-import { Comment, Conversation, Event, User, UserDay, UserTest, Word } from "../models";
+import { Badge, Comment, Conversation, Dialogue, Event, Phrase, ReceivedMessage, RootaText, User, UserDay, UserTest, UserWord, Word } from "../models";
 import { ExamStatus } from "../types/ExamStatus";
 
 export type AppAction =
@@ -7,20 +7,20 @@ export type AppAction =
     | { type: "setCurrentScreen"; payload: string }
     | { type: "setCurrentTab"; payload: string }
     | { type: "setWords"; payload: Word[]}
-    | { type: "setUserReceivedMessages"; payload: any[]}
+    | { type: "setUserReceivedMessages"; payload: ReceivedMessage[]}
     | { type: "setUsers"; payload: User[]}
     | { type: "setUserRanking"; payload: number}
-    | { type: "setUserWords"; payload: any[]}
+    | { type: "setUserWords"; payload: UserWord[]}
     | { type: "setUserEvents"; payload: { unlockedLevels: Event[], unlockedTests: Event[], unlockedDialogues: Boolean }}
-    | { type: "setUserCustomWords"; payload: any[]}
-    | { type: "setUserPhrases"; payload: any[]}
+    | { type: "setUserCustomWords"; payload: UserWord[]}
+    | { type: "setUserPhrases"; payload: Phrase[]}
     | { type: "setUserTests"; payload: UserTest[]}
-    | { type: "setUserDays"; payload: any[]}
+    | { type: "setUserDays"; payload: UserDay[]}
     | { type: "setUserEfficiency"; payload: number}
-    | { type: "setDialogues"; payload: []}
-    | { type: "setPhrases"; payload: []}
-    | { type: "setBadges"; payload: []}
-    | { type: "setRootaTexts"; payload: []}
+    | { type: "setDialogues"; payload: Dialogue[]}
+    | { type: "setPhrases"; payload: Phrase[]}
+    | { type: "setBadges"; payload: Badge[]}
+    | { type: "setRootaTexts"; payload: RootaText[]}
     | { type: "hideBottomNav"}
     | { type: "showBottomNav"}
     | { type: "toggleTalkingContainer";}
@@ -32,10 +32,10 @@ export type AppAction =
     | { type: "updateUserLevel"; payload: number}
     | { type: "updateTestWord"; payload: {testInitialIndex: number, word_id: number, status: ExamStatus}}
     | { type: "updateUserTest"; payload: {testInitialIndex: number, status: ExamStatus}}
-    | { type: "setUserConversations"; payload: []}
+    | { type: "setUserConversations"; payload: Conversation[]}
     | { type: "addUserComment"; payload: Comment }
     | { type: "addUserConversation"; payload: Conversation}
-    | { type: "addUserWord"; payload: any}
+    | { type: "addUserWord"; payload: UserWord}
     | { type: "setChosenLevel"; payload: number}
     | { type: "setChosenDialogue"; payload: number}
     | { type: "setStartedTest"; payload: boolean}

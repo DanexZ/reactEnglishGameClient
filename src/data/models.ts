@@ -15,14 +15,10 @@ export interface User {
     days: UserDay[]
     efficiency: number
     ranking: number
-    receivedMessages: any[]
+    receivedMessages: ReceivedMessage[]
     conversations: Conversation[]
     password: string
-    events: {
-        unlockedLevels: Event[]
-        unlockedDialogues: Boolean
-        unlockedTests: Event[]
-    }
+    events: UserEvents
 }
 
 
@@ -115,7 +111,7 @@ export interface Comment {
 
 
 export interface Conversation {
-    id: number,
+    id: number
     title: string
     author_id: number
     status: "new" | "open" | "closed"
@@ -134,4 +130,28 @@ export interface Phrase {
 
 export interface Event {
     type: EventType
+}
+
+
+export interface Badge {
+    id: number
+    title: string
+    description: string
+}
+
+
+export interface RootaText {
+    id: number
+    content: string
+}
+
+
+export interface UserEvents {
+    unlockedLevels: Event[]
+    unlockedDialogues: Boolean
+    unlockedTests: Event[]
+}
+
+export interface ReceivedMessage {
+    message_id: number
 }
