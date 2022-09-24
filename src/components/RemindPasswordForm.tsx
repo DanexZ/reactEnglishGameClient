@@ -1,23 +1,14 @@
-import { useState } from "react";
-import { useInitialFieldState, useLiveValidation } from "../hooks/useLiveValidation";
+import { useLiveValidation } from "../hooks/useLiveValidation";
 import { updateState } from "../utils/updateState";
 import { resetAsyncPassword } from "../lib/api";
 import Alert from "../lib/Alert";
+import { useEmail } from "../hooks/inputs/useEmail";
 
 const RemindPasswordForm = () => {
 
-    const [email, setEmail] = useState(useInitialFieldState());
+    const email = useEmail();
 
-    const { getFormErrors }: any = useLiveValidation({
-        
-        email: {
-            state: email,
-            setState: setEmail,
-            ...email,
-            noAsync: true
-        },
-
-    });
+    const { getFormErrors } = useLiveValidation({ email });
 
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -27,7 +18,7 @@ const RemindPasswordForm = () => {
 
         if (!errors.length) {
 
-            resetAsyncPassword(email.value, {
+            resetAsyncPassword(email.state.value, {
                 next: (data: any) => {
                     if (data.success) new Alert("success", "Link do zresetowania hasła został wysłany")
                 },
@@ -43,12 +34,12 @@ const RemindPasswordForm = () => {
         <form method="POST" onSubmit={handleSubmit}>           
 
             <div className="inputBox">
-                <div ref={email.errorRef} className="alert alert-danger small liveValidateMessage">{email.error}</div>
+                <div ref={email.state.errorRef} className="alert alert-danger small liveValidateMessage">{email.state.error}</div>
                 <input 
                     type="email"
-                    ref={email.ref}
-                    value={email.value} 
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(setEmail, "value", e.target.value)}
+                    ref={email.state.ref}
+                    value={email.state.value} 
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(email.setState, "value", e.target.value)}
                     required 
                 />
 

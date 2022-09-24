@@ -1,9 +1,8 @@
-import React, { useContext, useState } from "react";
+import { useContext } from "react";
 import PhrasesNavigation from "../components/learning-phrases-layout/PhrasesNavigation/PhrasesNavigation";
 import SinglePageWrapper from "../components/shared/SinglePageWrapper";
 import TransparentBox from "../components/shared/TransparentBox/TransparentBox";
 import { useLiveValidation } from "../hooks/useLiveValidation";
-import { useInitialFieldState } from "../hooks/useLiveValidation";
 import { updateState } from "../utils/updateState";
 import Alert from "../lib/Alert";
 import { addAsyncUserPhrase } from "../lib/api";
@@ -12,27 +11,18 @@ import { AppStateContext } from "../context/AppStateContext";
 import { Phrase } from "../data/models";
 import { AppAction } from "../data/actions/AppAction";
 import { AppDispatchContext } from "../context/AppDispatchContext";
+import { usePhrase } from "../hooks/inputs/usePhrase";
+import { useTranslations } from "../hooks/inputs/useTranslations";
 
 const AddPhrasePage = () => {
 
     const appState: AppStateInterface = useContext(AppStateContext);
     const appDispatch: Function = useContext(AppDispatchContext);
 
-    const [phrase, setPhrase] = useState(useInitialFieldState());
-    const [translation, setTranslation] = useState(useInitialFieldState());
+    const phrase = usePhrase(appState.user.id, appState.user.token);
+    const translations = useTranslations();
 
-    const { getFormErrors } = useLiveValidation({ 
-        phrase: {
-            state: phrase,
-            setState: setPhrase,
-            ...phrase
-        },
-        translation: {
-            state: translation,
-            setState: setTranslation,
-            ...translation
-        }
-    });
+    const { getFormErrors } = useLiveValidation({ phrase, translations});
 
 
     const handleSubmit = () => {
@@ -41,7 +31,7 @@ const AddPhrasePage = () => {
 
         if (!errors.length) {
 
-            addAsyncUserPhrase(appState.user.id, phrase.value, translation.value, appState.user.token, {
+            addAsyncUserPhrase(appState.user.id, phrase.state.value, translations.state.value, appState.user.token, {
 
                 next: (data: any) => {
 
@@ -50,9 +40,9 @@ const AddPhrasePage = () => {
                         const addedPhrase: Phrase = {
                             id: data.phrase_id,
                             user_id: appState.user.id,
-                            name: phrase.value,
+                            name: phrase.state.value,
                             translations: [{
-                                polish: translation.value,
+                                polish: translations.state.value,
                             }]
                         }
 
@@ -78,22 +68,22 @@ const AddPhrasePage = () => {
 
                 <h3>New custom phrase</h3>
                 <div className="inputBox">
-                    <div ref={phrase.errorRef} className="alert alert-danger small liveValidateMessage">{phrase.error}</div>
+                    <div ref={phrase.state.errorRef} className="alert alert-danger small liveValidateMessage">{phrase.state.error}</div>
                     <input 
                         type="text"
-                        ref={phrase.ref}
-                        value={phrase.value} 
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(setPhrase, "value", e.target.value)}
+                        ref={phrase.state.ref}
+                        value={phrase.state.value} 
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(phrase.setState, "value", e.target.value)}
                         required 
                     />
                     <label>Phrase</label>
                 </div>
                 <div className="inputBox">
-                    <div ref={translation.errorRef} className="alert alert-danger small liveValidateMessage">{translation.error}</div>
+                    <div ref={translations.state.errorRef} className="alert alert-danger small liveValidateMessage">{translations.state.error}</div>
                     <textarea 
-                        ref={translation.ref}
-                        value={translation.value}
-                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => updateState(setTranslation, "value", e.target.value)}
+                        ref={translations.state.ref}
+                        value={translations.state.value}
+                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => updateState(translations.setState, "value", e.target.value)}
                     ></textarea>
                     <label>Translation</label>
                 </div>

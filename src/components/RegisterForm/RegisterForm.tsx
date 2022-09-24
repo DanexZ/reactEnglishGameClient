@@ -1,50 +1,20 @@
-import React, { useState } from "react";
-import { useInitialFieldState } from "../../hooks/useLiveValidation";
 import { useLiveValidation } from "../../hooks/useLiveValidation";
 import { registerAsyncAccount } from "../../lib/api";
 import Alert from "../../lib/Alert";
 import { updateState } from "../../utils/updateState";
+import { useUsername } from "../../hooks/inputs/useUsername";
+import { useEmail } from "../../hooks/inputs/useEmail";
+import { usePassword } from "../../hooks/inputs/usePassword";
+import { useConfirmField } from "../../hooks/inputs/useConfirmField";
 
 const RegisterForm = () => {
 
-    const [userName, setUserName] = useState(useInitialFieldState());
-    const [email, setEmail] = useState(useInitialFieldState());
-    const [password, setPassword] = useState(useInitialFieldState());
-    const [confirmPassword, setConfirmPassword] = useState(useInitialFieldState());
+    const userName = useUsername();
+    const email = useEmail()
+    const password = usePassword();
+    const confirmField = useConfirmField(password.state);
 
-    const { getFormErrors }: any = useLiveValidation({
-        
-        userName: {
-            state: userName,
-            setState: setUserName,
-            ...userName
-        },
-
-        email: {
-            state: email,
-            setState: setEmail,
-            ...email
-        },
-
-        password: {
-            state: password,
-            setState: setPassword,
-            ...password
-        },
-
-        fieldToConfirm: {
-            state: password,
-            setState: setPassword,
-            ...password
-        },
-
-        confirmField: {
-            state: confirmPassword,
-            setState: setConfirmPassword,
-            ...confirmPassword
-        }
-
-    });
+    const { getFormErrors } = useLiveValidation({ userName, email, password, confirmField });
 
 
 
@@ -55,7 +25,7 @@ const RegisterForm = () => {
 
         if (!errors.length) {
 
-            registerAsyncAccount(userName.value, email.value, password.value, {
+            registerAsyncAccount(userName.state.value, email.state.value, password.state.value, {
                 next: (data: any) => {
 
                     if (data.success) {
@@ -76,12 +46,12 @@ const RegisterForm = () => {
     return (
         <form method="POST" onSubmit={handleSubmit}>
             <div className="inputBox">  
-                <div ref={userName.errorRef} className="alert alert-danger small liveValidateMessage">{userName.error}</div> 
+                <div ref={userName.state.errorRef} className="alert alert-danger small liveValidateMessage">{userName.state.error}</div> 
                 <input 
                     type="text"
-                    ref={userName.ref} 
-                    value={userName.value} 
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(setUserName, "value", e.target.value)}
+                    ref={userName.state.ref} 
+                    value={userName.state.value} 
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(userName.setState, "value", e.target.value)}
                     required
                     autoFocus 
                     data-testid="input-userName" 
@@ -90,36 +60,36 @@ const RegisterForm = () => {
             </div>
 
             <div className="inputBox">
-                <div ref={email.errorRef} className="alert alert-danger small liveValidateMessage">{email.error}</div>
+                <div ref={email.state.errorRef} className="alert alert-danger small liveValidateMessage">{email.state.error}</div>
                 <input 
                     type="email"
-                    ref={email.ref}
-                    value={email.value} 
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(setEmail, "value", e.target.value)}
+                    ref={email.state.ref}
+                    value={email.state.value} 
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(email.setState, "value", e.target.value)}
                     required 
                 />
                 <label>Email</label>
             </div>
 
             <div className="inputBox">
-                <div ref={password.errorRef} className="alert alert-danger small liveValidateMessage">{password.error}</div>
+                <div ref={password.state.errorRef} className="alert alert-danger small liveValidateMessage">{password.state.error}</div>
                 <input
                     type="password" 
-                    ref={password.ref}
-                    value={password.value} 
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(setPassword, "value", e.target.value)}
+                    ref={password.state.ref}
+                    value={password.state.value} 
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(password.setState, "value", e.target.value)}
                     required 
                 />
                 <label>hasło</label>
             </div>
 
             <div className="inputBox">
-                <div ref={confirmPassword.errorRef} className="alert alert-danger small liveValidateMessage">{confirmPassword.error}</div>
+                <div ref={confirmField.state.errorRef} className="alert alert-danger small liveValidateMessage">{confirmField.state.error}</div>
                 <input
                     type="password"
-                    ref={confirmPassword.ref}
-                    value={confirmPassword.value} 
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(setConfirmPassword, "value", e.target.value)}
+                    ref={confirmField.state.ref}
+                    value={confirmField.state.value} 
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(confirmField.setState, "value", e.target.value)}
                     required 
                 />
                 <label>Potwierdzenie hasła</label>

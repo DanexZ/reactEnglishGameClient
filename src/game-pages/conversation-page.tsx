@@ -1,10 +1,11 @@
-import React, { useContext, useMemo, useState } from "react";
+import React, { useContext, useState } from "react";
 import SinglePageWrapper from "../components/shared/SinglePageWrapper";
 import TransparentBox from "../components/shared/TransparentBox/TransparentBox";
 import { AppDispatchContext } from "../context/AppDispatchContext";
 import { AppAction } from "../data/actions/AppAction";
 import { Conversation, Comment } from "../data/models";
 import { AppStateInterface } from "../data/types/AppStateInterface";
+import { useMessage } from "../hooks/inputs/useMessage";
 import { useInitialFieldState, useLiveValidation } from "../hooks/useLiveValidation";
 import Alert from "../lib/Alert";
 import { addAsyncComment } from "../lib/api";
@@ -21,18 +22,9 @@ const ConversationPage = ({appState, conversation, setConversation}: Props) => {
 
     const appDispatch: Function = useContext(AppDispatchContext);
 
+    const message = useMessage();
 
-    const [message, setMessage] = useState(useInitialFieldState());
-
-    const { getFormErrors }: any = useLiveValidation({
-       
-        message: {
-            state: message,
-            setState: setMessage,
-            ...message
-        }
-
-    });
+    const { getFormErrors }: any = useLiveValidation({ message });
 
 
 
@@ -43,7 +35,7 @@ const ConversationPage = ({appState, conversation, setConversation}: Props) => {
 
         if (!errors.length) {
 
-            addAsyncComment(appState.user.id, conversation.id, message.value, appState.user.token, {
+            addAsyncComment(appState.user.id, conversation.id, message.state.value, appState.user.token, {
 
                 next: (data: any) => {
 
@@ -52,7 +44,7 @@ const ConversationPage = ({appState, conversation, setConversation}: Props) => {
                         const createdComment: Comment = {
                                 conversation_id: conversation.id,
                                 author_id: appState.user.id,
-                                content: message.value,
+                                content: message.state.value,
                                 created_at: getDate({date: new Date()})
                             }
                         
@@ -63,7 +55,7 @@ const ConversationPage = ({appState, conversation, setConversation}: Props) => {
 
                         new Alert("success", "Twoja wiadomość została zapisana w tym wątku");
 
-                        updateState(setMessage, "value", "");
+                        updateState(message.setState, "value", "");
                     }               
                 }
 
@@ -100,11 +92,11 @@ const ConversationPage = ({appState, conversation, setConversation}: Props) => {
                 
                 <h3 style={{marginTop: "1.5rem"}}>Nowa wiadomość</h3>
                 <div className="inputBox">
-                    <div ref={message.errorRef} className="alert alert-danger small liveValidateMessage">{message.error}</div> 
+                    <div ref={message.state.errorRef} className="alert alert-danger small liveValidateMessage">{message.state.error}</div> 
                     <textarea 
-                        ref={message.ref}
-                        value={message.value}
-                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => updateState(setMessage, "value", e.target.value)}
+                        ref={message.state.ref}
+                        value={message.state.value}
+                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => updateState(message.setState, "value", e.target.value)}
                     ></textarea>
                     <label>Wiadomość</label>
                 </div>

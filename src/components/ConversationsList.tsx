@@ -1,9 +1,11 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { AppDispatchContext } from "../context/AppDispatchContext";
 import { AppAction } from "../data/actions/AppAction";
 import { Conversation } from "../data/models";
 import { AppStateInterface } from "../data/types/AppStateInterface";
-import { useInitialFieldState, useLiveValidation } from "../hooks/useLiveValidation";
+import { useConversationTitle } from "../hooks/inputs/useConversationTitle";
+import { useMessage } from "../hooks/inputs/useMessage";
+import { useLiveValidation } from "../hooks/useLiveValidation";
 import Alert from "../lib/Alert";
 import { createAsyncConversation } from "../lib/api";
 import { getDate } from "../utils/date/getDate";
@@ -15,24 +17,10 @@ const ConversationsList = ({appState, setConversation} : {appState: AppStateInte
 
     const appDispatch: Function = useContext(AppDispatchContext);
 
-    const [conversationTitle, setConversationTitle] = useState(useInitialFieldState());
-    const [message, setMessage] = useState(useInitialFieldState());
+    const conversationTitle = useConversationTitle()
+    const message = useMessage()
 
-    const { getFormErrors }: any = useLiveValidation({
-        
-        conversationTitle: {
-            state: conversationTitle,
-            setState: setConversationTitle,
-            ...conversationTitle
-        },
-
-        message: {
-            state: message,
-            setState: setMessage,
-            ...message
-        }
-
-    });
+    const { getFormErrors }: any = useLiveValidation({ conversationTitle, message });
 
 
 
@@ -42,7 +30,7 @@ const ConversationsList = ({appState, setConversation} : {appState: AppStateInte
 
         if (!errors.length) {
 
-            createAsyncConversation(appState.user.id, conversationTitle.value, message.value, appState.user.token, {
+            createAsyncConversation(appState.user.id, conversationTitle.state.value, message.state.value, appState.user.token, {
 
                 next: (data: any) => {
 
@@ -50,14 +38,14 @@ const ConversationsList = ({appState, setConversation} : {appState: AppStateInte
 
                         const createdConversation: Conversation = {
                             id: data.conversation_id,
-                            title: conversationTitle.value,
+                            title: conversationTitle.state.value,
                             author_id: appState.user.id,
                             created_at: getDate({date: new Date()}),
                             status: "new",
                             comments: [{
                                 conversation_id: data.conversation_id,
                                 author_id: appState.user.id,
-                                content: message.value,
+                                content: message.state.value,
                                 created_at: getDate({date: new Date()})
                             }]
                         }
@@ -67,8 +55,8 @@ const ConversationsList = ({appState, setConversation} : {appState: AppStateInte
 
                         new Alert("success", "Zgłoszenie zostało zapisane w naszej bazie danych");
 
-                        updateState(setConversationTitle, "value", "");
-                        updateState(setMessage, "value", "");
+                        updateState(conversationTitle.setState, "value", "");
+                        updateState(message.setState, "value", "");
                     }               
                 }
 
@@ -89,23 +77,23 @@ const ConversationsList = ({appState, setConversation} : {appState: AppStateInte
                 <h3>Nowa wiadomość</h3>
 
                 <div className="inputBox">
-                    <div ref={conversationTitle.errorRef} className="alert alert-danger small liveValidateMessage">{conversationTitle.error}</div> 
+                    <div ref={conversationTitle.state.errorRef} className="alert alert-danger small liveValidateMessage">{conversationTitle.state.error}</div> 
                     <input
                         type="text"
-                        ref={conversationTitle.ref} 
-                        value={conversationTitle.value} 
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(setConversationTitle, "value", e.target.value)}
+                        ref={conversationTitle.state.ref} 
+                        value={conversationTitle.state.value} 
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(conversationTitle.setState, "value", e.target.value)}
                         required
                         autoFocus 
                     />
                     <label>Tytuł wiadomości</label>
                 </div>
                 <div className="inputBox">
-                    <div ref={message.errorRef} className="alert alert-danger small liveValidateMessage">{message.error}</div> 
+                    <div ref={message.state.errorRef} className="alert alert-danger small liveValidateMessage">{message.state.error}</div> 
                     <textarea
-                        ref={message.ref}
-                        value={message.value}
-                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => updateState(setMessage, "value", e.target.value)}
+                        ref={message.state.ref}
+                        value={message.state.value}
+                        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => updateState(message.setState, "value", e.target.value)}
                     ></textarea>
                     <label>Wiadomość</label>
                 </div>

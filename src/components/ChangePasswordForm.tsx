@@ -1,47 +1,30 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { AppDispatchContext } from "../context/AppDispatchContext";
 import { AppStateContext } from "../context/AppStateContext";
 import { AppAction } from "../data/actions/AppAction";
 import { SCREEN_NAMES } from "../data/constants";
 import { AppStateInterface } from "../data/types/AppStateInterface";
-import { useInitialFieldState, useLiveValidation } from "../hooks/useLiveValidation";
+import { useLiveValidation } from "../hooks/useLiveValidation";
 import Alert from "../lib/Alert";
 import { changeAsyncPassword } from "../lib/api";
 import { updateState } from "../utils/updateState";
 import { useSearchParams } from "react-router-dom";
+import { usePassword } from "../hooks/inputs/usePassword";
+import { useConfirmField } from "../hooks/inputs/useConfirmField";
 
 const ChangePasswordForm = () => {
 
     const appState: AppStateInterface = useContext(AppStateContext);
     const appDispatch: Function = useContext(AppDispatchContext);
 
-    const [password, setPassword] = useState(useInitialFieldState());
-    const [confirmPassword, setConfirmPassword] = useState(useInitialFieldState());
+    const password = usePassword();
+    const confirmField = useConfirmField(password.state);
+
+    const { getFormErrors }: any = useLiveValidation({ password, confirmField });
 
     const [searchParams, setSearchParams] = useSearchParams();
 
-    const { getFormErrors }: any = useLiveValidation({
-        
-        password: {
-            state: password,
-            setState: setPassword,
-            ...password
-        },
-
-        fieldToConfirm: {
-            state: password,
-            setState: setPassword,
-            ...password
-        },
-
-        confirmField: {
-            state: confirmPassword,
-            setState: setConfirmPassword,
-            ...confirmPassword
-        }
-
-    });
-
+    
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
 
@@ -50,7 +33,7 @@ const ChangePasswordForm = () => {
 
         if (!errors.length) {
 
-            changeAsyncPassword(appState.emailToken, password.value, appState.user.id, {
+            changeAsyncPassword(appState.emailToken, password.state.value, appState.user.id, {
                 next: (data: any) => {
                     if (data.success) {
                         
@@ -74,8 +57,8 @@ const ChangePasswordForm = () => {
                             
                         });
 
-                        updateState(setPassword, "value", "");
-                        updateState(setConfirmPassword, "value", "");
+                        updateState(password.setState, "value", "");
+                        updateState(confirmField.setState, "value", "");
 
                     } else {
                         new Alert("error", data.error);
@@ -94,24 +77,24 @@ const ChangePasswordForm = () => {
             <h2>Zmiana hasła</h2>
 
             <div className="inputBox">
-                <div ref={password.errorRef} className="alert alert-danger small liveValidateMessage">{password.error}</div>
+                <div ref={password.state.errorRef} className="alert alert-danger small liveValidateMessage">{password.state.error}</div>
                 <input
                     type="password" 
-                    ref={password.ref}
-                    value={password.value} 
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(setPassword, "value", e.target.value)}
+                    ref={password.state.ref}
+                    value={password.state.value} 
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(password.setState, "value", e.target.value)}
                     required 
                 />
                 <label>Nowe hasło</label>
             </div>
 
             <div className="inputBox">
-                <div ref={confirmPassword.errorRef} className="alert alert-danger small liveValidateMessage">{confirmPassword.error}</div>
+                <div ref={confirmField.state.errorRef} className="alert alert-danger small liveValidateMessage">{confirmField.state.error}</div>
                 <input
                     type="password"
-                    ref={confirmPassword.ref}
-                    value={confirmPassword.value} 
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(setConfirmPassword, "value", e.target.value)}
+                    ref={confirmField.state.ref}
+                    value={confirmField.state.value} 
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateState(confirmField.setState, "value", e.target.value)}
                     required 
                 />
                 <label>Potwierdź nowe hasło</label>
