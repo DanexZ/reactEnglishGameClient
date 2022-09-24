@@ -590,6 +590,12 @@
     }
 }
 
+@media (max-width: 360px) {
+    .tabContainer {
+        width: 95%;
+    }
+}
+
 @media (orientation: portrait) {
     .mountains{
         background-image: url('../../public/images/nature_mobile.jpg');
