@@ -1,4 +1,4 @@
-import React, {useContext, useState, useEffect} from "react";
+import {useContext, useState, useEffect} from "react";
 import { DataLoadingBox } from "../components/DataLoadingBox";
 import { SCREEN_NAMES } from "../data/constants";
 import { AppAction } from "../data/actions/AppAction";

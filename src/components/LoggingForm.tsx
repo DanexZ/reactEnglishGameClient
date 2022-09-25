@@ -11,7 +11,7 @@ const LoggingForm = () => {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSignIn = async (e: any) => {
+    const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
 
         e.preventDefault();
 
