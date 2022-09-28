@@ -34,19 +34,22 @@ export const SingleWordRow = ({userWord, isAdded, cssClass}: Props) => {
     const { handleError } = useSavingHandlers();
 
 
-    const handleAddingWordToLearning = () => {
+    const handleAddingWordToLearning = (e: any) => {
 
-        if (featureState.learningWords.find((word: UserWord) => word.word_id === userWord.word_id)) {
+        if (e.target.tagName.toLowerCase() === "li") {
 
-            const words = featureState.learningWords.filter((word: UserWord) => word.word_id !== userWord.word_id) 
+            if (featureState.learningWords.find((word: UserWord) => word.word_id === userWord.word_id)) {
 
-            const action: WordsPageAction = {type: "setLearningWords", payload: words}
-            featureDispatch(action);
+                const words = featureState.learningWords.filter((word: UserWord) => word.word_id !== userWord.word_id) 
 
-        } else {
-    
-            const action: WordsPageAction = {type: "setLearningWords", payload: [...featureState.learningWords, userWord]}
-            featureDispatch(action);
+                const action: WordsPageAction = {type: "setLearningWords", payload: words}
+                featureDispatch(action);
+
+            } else {
+        
+                const action: WordsPageAction = {type: "setLearningWords", payload: [...featureState.learningWords, userWord]}
+                featureDispatch(action);
+            }
         }
 
     }
