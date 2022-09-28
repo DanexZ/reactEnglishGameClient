@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { WordsPageStateContext } from "../../context/WordsPageStateContext";
 import { WordsPageDispatchContext } from "../../context/WordsPageDispatchContext";
 import { WordsPageState} from "../../data/types/WordsPageState";
@@ -10,9 +10,11 @@ import { AppStateInterface } from "../../data/types/AppStateInterface";
 import { AppStateContext } from "../../context/AppStateContext";
 import { AppDispatchContext } from "../../context/AppDispatchContext";
 import { AppAction } from "../../data/actions/AppAction";
-import { deleteAsyncWord } from "../../lib/api";
+import { asyncToggleCurrentlyLearning, deleteAsyncWord } from "../../lib/api";
 import Alert from "../../lib/Alert";
 import { getProgressBarColor } from "../../utils/getProgressBarColor";
+import { LearningStatus } from "../../data/types/LearningStatus";
+import { useSavingHandlers } from "../../hooks/useSavingHandlers";
 
 
 interface Props {
@@ -28,6 +30,8 @@ export const SingleWordRow = ({userWord, isAdded, cssClass}: Props) => {
     const appDispatch: Function = useContext(AppDispatchContext);
     const featureState: WordsPageState = useContext(WordsPageStateContext);
     const featureDispatch: Function = useContext(WordsPageDispatchContext);
+
+    const { handleError } = useSavingHandlers();
 
 
     const handleAddingWordToLearning = () => {
@@ -78,13 +82,42 @@ export const SingleWordRow = ({userWord, isAdded, cssClass}: Props) => {
     }
 
 
+    const handleToggleTricky = () => {
+
+        const newStatus: LearningStatus = (userWord.currentlyLearning === "true") ? "false" : "true";
+
+        if (newStatus === "true") {
+
+            const trickyWords: UserWord[] = [...appState.user.currentlyLearningWords, userWord];
+
+            const appAction: AppAction = {type: "setUserCurrentlyLearningWords", payload: trickyWords}
+            appDispatch(appAction);
+
+        } else {
+
+            const trickyWords: UserWord[] = appState.user.currentlyLearningWords.filter((word) => word.word_id !== userWord.word_id);
+
+            const appAction: AppAction = {type: "setUserCurrentlyLearningWords", payload: trickyWords}
+            appDispatch(appAction);
+        }
+
+        const appAction: AppAction = {type: "setUserWordLearningStatus", payload: { word_id: userWord.word_id, status: newStatus} }
+        appDispatch(appAction);
+
+        asyncToggleCurrentlyLearning(appState.user.id, userWord.word_id, newStatus, appState.user.token, {
+            errorHandler: (e: any) => handleError(e)
+        })
+
+    }
+
+
 
     return (
         <li className={`elementRow ${(isAdded ? "addedWord" : "")}`} onClick={handleAddingWordToLearning}>
 
             <div>
 
-                <button className="btn btn-blue">Add</button>
+                <button className="btn btn-blue" onClick={handleToggleTricky}>{(userWord.currentlyLearning === "true" ? "Got it" : "Tricky")}</button>
 
                 <Tile3d cssClass={cssClass} onClickFn={trainWord} >
                     <div className="correctnesses flex">

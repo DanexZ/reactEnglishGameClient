@@ -12,7 +12,7 @@ import { calculateUserEfficiency } from "../utils/calculateUserEfficiency";
 import { getUserRanking } from "../utils/getUserRanking";
 import { useSavingHandlers } from "../hooks/useSavingHandlers";
 import { getRandomItem } from "../utils/getRandomItem";
-import { Event, User, UserTest, UserWord } from "../data/models";
+import { Badge, Conversation, Dialogue, Event, Phrase, RootaText, User, UserDay, UserEvents, UserMessage, UserTest, UserWord, Word } from "../data/models";
 
 const DataLoadingFeature = () => {
 
@@ -74,7 +74,7 @@ const DataLoadingFeature = () => {
     useEffect( () => {
 
 
-        requests.getWords(({words}: any) => {
+        requests.getWords(({words}: {words: Word[]}) => {
 
             const action: AppAction = {type: "setWords", payload: words}
             appDispatch(action);
@@ -82,14 +82,17 @@ const DataLoadingFeature = () => {
         });
         
 
-        requests.getUserWords(({words}: any) => {
+        requests.getUserWords(({words}: {words: UserWord[]}) => {
 
             const userAppWords: UserWord[] = [];
             const userCustomWords: UserWord[] = [];
+            const userCurrentlyLearningWords: UserWord[] = [];
 
             words.forEach( (word: UserWord) => {
                 if (word.word_id > 3000) userCustomWords.push(word)
                 else userAppWords.push(word)
+
+                if (word.currentlyLearning === "true") userCurrentlyLearningWords.push(word);
             });
 
             userAppWords.forEach((w: UserWord, index: number) => {
@@ -103,17 +106,19 @@ const DataLoadingFeature = () => {
             const actions: AppAction[] = [
                 {type: "setUserWords", payload: userAppWords},
                 {type: "setUserCustomWords", payload: userCustomWords},
+                {type: "setUserCurrentlyLearningWords", payload: userCurrentlyLearningWords},
                 {type: "setUserEfficiency", payload: userEfficiency}
             ];
 
             appDispatch(actions[0]);
             appDispatch(actions[1]);
             appDispatch(actions[2]);
+            appDispatch(actions[3]);
         });
 
 
 
-        requests.getUserTests(({tests}: any) => {
+        requests.getUserTests(({tests}: {tests: UserTest[]}) => {
 
             tests.forEach((w: UserTest, index: number) => {
                 w.initialIndex = index
@@ -124,7 +129,7 @@ const DataLoadingFeature = () => {
         });
 
 
-        requests.getUsers(({users}: any) => {
+        requests.getUsers(({users}: {users: User[]}) => {
 
             users.sort((a:User, b:User) => b.points - a.points);
 
@@ -140,54 +145,54 @@ const DataLoadingFeature = () => {
         });
 
 
-        requests.getPhrases(({phrases}: any) => {
+        requests.getPhrases(({phrases}: {phrases: Phrase[]}) => {
             const action: AppAction = {type: "setPhrases", payload: phrases}
             appDispatch(action);
         });
 
 
-        requests.getDialogues(({dialogues}: any) => {
+        requests.getDialogues(({dialogues}: {dialogues: Dialogue[]}) => {
             const action: AppAction = {type: "setDialogues", payload: dialogues}
             appDispatch(action);
         });
 
 
 
-        requests.getDialogues(({badges}: any) => {
+        requests.getDialogues(({badges}: {badges: Badge[]}) => {
             const action: AppAction = {type: "setBadges", payload: badges}
             appDispatch(action);
         });
 
 
 
-        requests.getRootaMessages(({messages}: any) => {
+        requests.getRootaMessages(({messages}: {messages: RootaText[]}) => {
             const action: AppAction = {type: "setRootaTexts", payload: messages}
             appDispatch(action);
         });
 
 
 
-        requests.getUserMessages(({user_messages}: any) => {
+        requests.getUserMessages(({user_messages}: {user_messages: UserMessage[]}) => {
             const action: AppAction = {type: "setUserReceivedMessages", payload: user_messages}
             appDispatch(action);
         });
 
 
 
-        requests.getUserDays(({days}: any) => {
+        requests.getUserDays(({days}: {days: UserDay[]}) => {
             const action: AppAction = {type: "setUserDays", payload: days}
             appDispatch(action);
         });
 
 
 
-        requests.getConversations(({conversations}: any) => {
+        requests.getConversations(({conversations}: {conversations: Conversation[]}) => {
             const action: AppAction = {type: "setUserConversations", payload: conversations}
             appDispatch(action);
         });
 
 
-        requests.getUserPhrases(({phrases}: any) => {
+        requests.getUserPhrases(({phrases}: {phrases: Phrase[]}) => {
             const action: AppAction = {type: "setUserPhrases", payload: phrases}
             appDispatch(action);
         });
@@ -199,7 +204,13 @@ const DataLoadingFeature = () => {
             const unlockedTests = events.filter((event: Event) => event.type === "unlocked_test");
             const unlockedDialogues = events.some((event: Event) => event.type === "unlocked_dialogues");
 
-            const action: AppAction = {type: "setUserEvents", payload: { unlockedLevels, unlockedTests, unlockedDialogues }}
+            const userEvents: UserEvents = {
+                unlockedLevels,
+                unlockedTests,
+                unlockedDialogues
+            }
+
+            const action: AppAction = {type: "setUserEvents", payload: userEvents}
             appDispatch(action);
         });
         

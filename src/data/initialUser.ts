@@ -10,6 +10,7 @@ export const initialUser: User = {
     password: localStorage.getItem("englishGame_userHash") || "",
     words: [],
     customWords: [],
+    currentlyLearningWords: [],
     phrases: [],
     tests: [],
     days: [],

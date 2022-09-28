@@ -109,7 +109,10 @@ const GameStartingScreen = () => {
                 <MainNav />
             
                 {(appState.tutorialStage || (appState.currentTab === PAGES.NONE)) && <TutorialFeature />}
-                {(appState.currentTab === PAGES.WORDS || appState.currentTab === PAGES.USER_WORDS) && <WordsPageFeature />}
+                
+                {(appState.currentTab === PAGES.WORDS || 
+                  appState.currentTab === PAGES.USER_WORDS ||
+                  appState.currentTab === PAGES.USER_LEARNING_WORDS) && <WordsPageFeature />}
 
                 {appState.currentTab === PAGES.COLLECT && <LevelsPage />}
                 {appState.currentTab === PAGES.DIALOGUES && <DialoguesPage />}

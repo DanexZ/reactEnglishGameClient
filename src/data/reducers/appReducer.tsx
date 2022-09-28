@@ -49,6 +49,23 @@ export const appReducer = (draftState: AppStateInterface, action: AppAction) => 
             draftState.user.customWords = action.payload;
             break;
 
+        case "setUserCurrentlyLearningWords":
+            draftState.user.currentlyLearningWords = action.payload;
+            break;
+
+        case "setUserWordLearningStatus":
+            
+            for (let i=0; i<draftState.user.words.length; i++) {
+                const specyficUserWord = draftState.user.words[i];
+
+                if (action.payload.word_id === specyficUserWord.word_id) {
+                    specyficUserWord.currentlyLearning = action.payload.status;
+                    break;
+                }
+            }
+            
+            break;
+
         case "setUserConversations":
             draftState.user.conversations = action.payload;
             break;

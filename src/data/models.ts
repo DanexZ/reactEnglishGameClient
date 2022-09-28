@@ -1,3 +1,4 @@
+import { LearningStatus } from "./types/LearningStatus";
 import { EventType } from "./types/EventType";
 import { ExamStatus } from "./types/ExamStatus";
 
@@ -10,6 +11,7 @@ export interface User {
     points: number
     words: UserWord[]
     customWords: UserWord[]
+    currentlyLearningWords: UserWord[]
     phrases: Phrase[]
     tests: UserTest[]
     days: UserDay[]
@@ -38,6 +40,7 @@ export interface UserWord {
     mistakes: Mistake[]
     correctnesses: Correctness[]
     power: number
+    currentlyLearning: LearningStatus
     created_at: string
 }
 

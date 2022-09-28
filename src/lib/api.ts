@@ -3,6 +3,7 @@ import Alert from "./Alert";
 import { TestWord, UserDay } from "../data/models";
 import { ExamStatus } from "../data/types/ExamStatus";
 import { EventType } from "../data/types/EventType";
+import { LearningStatus } from "../data/types/LearningStatus";
 axios.defaults.baseURL = process.env.REACT_APP_API_BASE_URL;
 
 export interface RequestHandler {
@@ -131,6 +132,9 @@ export const addAsyncUserPhrase =
 
 export const addAsyncUserWord = 
     (user_id: number, word_id: number, token: string, requestHandler: RequestHandler) => post("/addUserWord", {user_id, word_id}, requestHandler, token);
+
+export const asyncToggleCurrentlyLearning = 
+    (user_id: number, word_id: number, status: LearningStatus, token: string, requestHandler: RequestHandler) => post("/toggleCurrentlyLearning", {user_id, word_id, status}, requestHandler, token);
 
 export const addAsyncUserCustomWord = 
     (user_id: number, word: string, translations: string, token: string, requestHandler: RequestHandler) => post("/addUserCustomWord", {user_id, word, translations}, requestHandler, token);

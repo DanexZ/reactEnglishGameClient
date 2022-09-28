@@ -19,6 +19,7 @@ export const PAGES = {
     WORDS: "Words",
     ADD_CUSTOM_WORD: "Add new word",
     USER_WORDS: "Custom Words",
+    USER_LEARNING_WORDS: "Currently learning words",
     TESTS: "Tests",
     PHRASES: "Phrases",
     ADD_CUSTOM_PHRASE: "Add new phrase",

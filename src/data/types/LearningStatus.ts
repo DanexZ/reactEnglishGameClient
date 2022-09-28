@@ -1,0 +1,1 @@
+export type LearningStatus = "false" | "true";

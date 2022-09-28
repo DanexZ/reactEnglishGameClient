@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { useImmerReducer } from "use-immer";
 import { WordsPageReducer } from "../data/reducers/WordsPageReducer";
 import WordsPage from "../game-pages/words-page";
@@ -9,6 +9,7 @@ import { AppStateInterface } from "../data/types/AppStateInterface";
 import { AppStateContext } from "../context/AppStateContext";
 import UserWordsPage from "../game-pages/user-words-page";
 import { PAGES } from "../data/constants";
+import UserTrickyWordsPage from "../game-pages/user-tricky-words-page";
 
 const WordsPageFeature = () => {   
 
@@ -24,12 +25,13 @@ const WordsPageFeature = () => {
     }
 
     const [featureState, featureDispatch] = useImmerReducer(WordsPageReducer, initialFeatureState);
-
+    
     return (
         <WordsPageStateContext.Provider value={featureState}>
             <WordsPageDispatchContext.Provider value={featureDispatch}>
                 {appState.currentTab === PAGES.WORDS && <WordsPage />}
                 {appState.currentTab === PAGES.USER_WORDS && <UserWordsPage />}
+                {appState.currentTab === PAGES.USER_LEARNING_WORDS && <UserTrickyWordsPage />}
             </WordsPageDispatchContext.Provider>
         </WordsPageStateContext.Provider>
     )

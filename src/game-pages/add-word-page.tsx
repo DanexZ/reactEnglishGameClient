@@ -45,6 +45,7 @@ const AddWordPage = () => {
                             mistakes: [],
                             correctnesses: [],
                             power: 100,
+                            currentlyLearning: "false",
                             created_at: data.created_at,
                             translations: translations.state.value.split(",").map((t) => { 
                                 return { polish: t }

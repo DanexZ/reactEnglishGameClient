@@ -1,5 +1,6 @@
 import { Badge, Comment, Conversation, Dialogue, Event, Phrase, ReceivedMessage, RootaText, User, UserDay, UserTest, UserWord, Word } from "../models";
 import { ExamStatus } from "../types/ExamStatus";
+import { LearningStatus } from "../types/LearningStatus";
 
 export type AppAction =
     | { type: "login"; payload: User }
@@ -11,6 +12,8 @@ export type AppAction =
     | { type: "setUsers"; payload: User[]}
     | { type: "setUserRanking"; payload: number}
     | { type: "setUserWords"; payload: UserWord[]}
+    | { type: "setUserCurrentlyLearningWords"; payload: UserWord[]}
+    | { type: "setUserWordLearningStatus"; payload: {word_id: number, status: LearningStatus}}
     | { type: "setUserEvents"; payload: { unlockedLevels: Event[], unlockedTests: Event[], unlockedDialogues: boolean }}
     | { type: "setUserCustomWords"; payload: UserWord[]}
     | { type: "setUserPhrases"; payload: Phrase[]}
