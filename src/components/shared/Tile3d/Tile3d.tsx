@@ -1,4 +1,3 @@
-import React from "react";
 import "./Tile3d.scss";
 
 const Tile3d = ({onClickFn, cssClass, children}: {onClickFn?: Function, cssClass: string, children: any}) => {

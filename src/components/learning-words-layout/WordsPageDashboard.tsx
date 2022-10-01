@@ -10,10 +10,11 @@ import { WordsPageState } from "../../data/types/WordsPageState";
 import { WordsPageStateContext } from "../../context/WordsPageStateContext";
 import { UserWord } from "../../data/models";
 import { WordsFeatureMode } from "../../data/types/WordsFeatureMode";
+import { Page } from "../../data/types/Page";
 
 interface Props {
     setSort: Function
-    pages: any[]
+    pages: Page[]
 }
 
 const WordsPageDashboard = ({setSort, pages}: Props) => {
@@ -77,9 +78,9 @@ const WordsPageDashboard = ({setSort, pages}: Props) => {
                 if (chosenWords.length >= featureState.inputChosenWords) break;
     
                 for (let m=0; m<rows.length; m++) {
-                    const {word} = rows[m];
+                    const {element} = rows[m];
     
-                    if (!chosenWords.some((w: UserWord) => w.word_id === word.word_id )) chosenWords.push(word);
+                    if (!chosenWords.some((w: UserWord) => w.word_id === element.word_id )) chosenWords.push(element);
                     if (chosenWords.length >= featureState.inputChosenWords) break
                 }
             }

@@ -1,4 +1,3 @@
-import React from "react";
 
 const Lifes = ({appUserLifes, featureUserlifes, featureStep}: {appUserLifes: number, featureUserlifes: number, featureStep: number}) => {
 

@@ -29,6 +29,10 @@
 
 }
 
+.wordsPage .scene{
+    margin-left: 1rem;
+}
+
 .memoryExercise,
 .wordsOptions {
     display: flex;
@@ -141,10 +145,6 @@
         margin-left: 0;
     }
 
-    .wordsPage .scene{
-        margin: 0 20px 0 20px;
-    }
-
     .wordsRows .transcription{
         margin-left: 0;
     }
@@ -192,10 +192,6 @@
         }
     }
 
-    .wordsView .scene{
-        margin: 0 0 0 20px;
-    }
-
     .wordsNavigation,
     .secretWordsNavigation{
         width: 312px;
@@ -203,10 +199,6 @@
 
     .wordsRows .transcriptions{
         display: none;
-    }
-
-    .wordsView .scene{
-        margin: 0 0 0 10px;
     }
 
     .memoryExercise .btn,

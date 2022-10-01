@@ -186,9 +186,17 @@
     padding-right: 1.5rem;
 }
 
-.content .scene {
-    display: inline-block;
-    margin: .8rem 0 0 1rem;
+.content {
+    position: relative;
+    min-height: 15rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-top: 1.5rem;
+
+    .scene {
+        margin-bottom: 1rem;
+    }
 }
 
 
@@ -234,11 +242,6 @@
     width: 100%;
     position: relative;
     margin: 0 auto 8.5rem auto;
-}
-
-.content{
-    position: relative;
-    min-height: 15rem;
 }
 
 /* Arrows */

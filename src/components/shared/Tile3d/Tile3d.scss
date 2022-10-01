@@ -65,7 +65,7 @@
     bottom: 4px;
 }
 
-.tile-progress{
+.tile-progress {
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -75,13 +75,13 @@
     overflow-y: hidden;
 }
 
-.tile-progress > div{
+.tile-progress > div {
     height: 100%;
     transition: all .3s ease;
 }
 
 .front,
-.back{
+.back {
     width: 100%;
     height: 100%;
 }
