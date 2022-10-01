@@ -84,27 +84,27 @@ const DataLoadingFeature = () => {
 
         requests.getUserWords(({words}: {words: UserWord[]}) => {
 
-            const userAppWords: UserWord[] = [];
+            const userCollectedWords: UserWord[] = [];
             const userCustomWords: UserWord[] = [];
             const userCurrentlyLearningWords: UserWord[] = [];
 
             words.forEach( (word: UserWord) => {
                 if (word.word_id > 3000) userCustomWords.push(word)
-                else userAppWords.push(word)
+                else userCollectedWords.push(word)
 
                 if (word.currentlyLearning === "true") userCurrentlyLearningWords.push(word);
             });
 
-            userAppWords.forEach((w: UserWord, index: number) => {
+            userCollectedWords.forEach((w: UserWord, index: number) => {
                 w.initialIndex = index
                 w.featureInitialIndex = 0;
             });
 
         
-            const userEfficiency = calculateUserEfficiency(userAppWords);
+            const userEfficiency = calculateUserEfficiency(userCollectedWords);
 
             const actions: AppAction[] = [
-                {type: "setUserWords", payload: userAppWords},
+                {type: "setUserWords", payload: userCollectedWords},
                 {type: "setUserCustomWords", payload: userCustomWords},
                 {type: "setUserCurrentlyLearningWords", payload: userCurrentlyLearningWords},
                 {type: "setUserEfficiency", payload: userEfficiency}
