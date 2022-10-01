@@ -66,7 +66,7 @@ const TutorialFeature = () => {
 
                 const actions: AppAction[] = [
                     {type: "setTutorialStage", payload: 4},
-                    {type: "setCurrentTab", payload: PAGES.WORDS}
+                    {type: "setCurrentTab", payload: PAGES.USER_WORDS}
                 ];
 
                 appDispatch(actions[0]);

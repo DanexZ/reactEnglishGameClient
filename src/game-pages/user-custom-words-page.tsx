@@ -1,25 +1,26 @@
 import { useContext } from "react";
-import WordsList from "../components/learning-words-layout/WordsList";
-import WordsPageDashboard from "../components/learning-words-layout/WordsPageDashboard";
-import WordsSubMenu from "../components/learning-words-layout/WordsSubMenu";
-import Pagination from "../components/shared/Pagination/Pagination";
-import SinglePageWrapper from "../components/shared/SinglePageWrapper";
 import { AppStateContext } from "../context/AppStateContext";
 import { WordsPageStateContext } from "../context/WordsPageStateContext";
-import { AppStateInterface } from "../data/types/AppStateInterface";
+import SinglePageWrapper from "../components/shared/SinglePageWrapper";
+import WordsPageDashboard from "../components/learning-words-layout/WordsPageDashboard";
+import WordsList from "../components/learning-words-layout/WordsList";
+import Pagination from "../components/shared/Pagination/Pagination";
+import { usePagination } from "../hooks/usePagination";
 import { WordsPageState } from "../data/types/WordsPageState";
+import { AppStateInterface } from "../data/types/AppStateInterface";
 import ListeningFeature from "../features/listening-feature";
 import TrainingWordFeature from "../features/training-word-feature";
-import { usePagination } from "../hooks/usePagination";
+import WordsSubMenu from "../components/learning-words-layout/WordsSubMenu";
 
-const UserTrickyWordsPage = () => {
+const UserCustomWordsPage = () => {
+
     const appState: AppStateInterface = useContext(AppStateContext);
     const featureState: WordsPageState = useContext(WordsPageStateContext);
 
     const {pagination, rowsOnPage, currentPageIndex, setSort, pages} = usePagination({
         rowsPerPage: 30, 
         kind: "word",
-        elements: appState.user.currentlyLearningWords
+        elements: appState.user.customWords
     });
 
 
@@ -34,6 +35,7 @@ const UserTrickyWordsPage = () => {
             {appState.listening && <ListeningFeature />}
         </SinglePageWrapper>
     )
+
 }
 
-export default UserTrickyWordsPage
+export default UserCustomWordsPage

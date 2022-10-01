@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { WordsPageStateContext } from "../../context/WordsPageStateContext";
 import { WordsPageDispatchContext } from "../../context/WordsPageDispatchContext";
 import { WordsPageState} from "../../data/types/WordsPageState";
@@ -30,6 +30,8 @@ export const SingleWordRow = ({userWord, isAdded, cssClass}: Props) => {
     const appDispatch: Function = useContext(AppDispatchContext);
     const featureState: WordsPageState = useContext(WordsPageStateContext);
     const featureDispatch: Function = useContext(WordsPageDispatchContext);
+
+    const [trickyWord, setTrickyWord] = useState(userWord.currentlyLearning);
 
     const { handleError } = useSavingHandlers();
 
@@ -89,9 +91,16 @@ export const SingleWordRow = ({userWord, isAdded, cssClass}: Props) => {
 
         const newStatus: LearningStatus = (userWord.currentlyLearning === "true") ? "false" : "true";
 
+        const newUserWord: UserWord = {...userWord};
+        newUserWord.currentlyLearning = newStatus;
+
+        const appAction: AppAction = {type: "swapUserWord", payload: newUserWord };
+        appDispatch(appAction);
+
+
         if (newStatus === "true") {
 
-            const trickyWords: UserWord[] = [...appState.user.currentlyLearningWords, userWord];
+            const trickyWords: UserWord[] = [...appState.user.currentlyLearningWords, newUserWord];
 
             const appAction: AppAction = {type: "setUserCurrentlyLearningWords", payload: trickyWords}
             appDispatch(appAction);
@@ -104,13 +113,14 @@ export const SingleWordRow = ({userWord, isAdded, cssClass}: Props) => {
             appDispatch(appAction);
         }
 
-        const appAction: AppAction = {type: "setUserWordLearningStatus", payload: { word_id: userWord.word_id, status: newStatus} }
-        appDispatch(appAction);
 
         asyncToggleCurrentlyLearning(appState.user.id, userWord.word_id, newStatus, appState.user.token, {
             errorHandler: (e: any) => handleError(e)
-        })
+        });
 
+
+        setTrickyWord(newStatus);
+        
     }
 
 
@@ -120,7 +130,7 @@ export const SingleWordRow = ({userWord, isAdded, cssClass}: Props) => {
 
             <div>
 
-                <button className="btn btn-blue" onClick={handleToggleTricky}>{(userWord.currentlyLearning === "true" ? "Got it" : "Tricky")}</button>
+                <button className="btn btn-blue" onClick={handleToggleTricky}>{(trickyWord === "true" ? "Got it" : "Tricky")}</button>
 
                 <Tile3d cssClass={cssClass} onClickFn={trainWord} >
                     <div className="correctnesses flex">

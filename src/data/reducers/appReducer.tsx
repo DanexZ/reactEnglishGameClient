@@ -53,13 +53,28 @@ export const appReducer = (draftState: AppStateInterface, action: AppAction) => 
             draftState.user.currentlyLearningWords = action.payload;
             break;
 
-        case "setUserWordLearningStatus":
+        case "swapUserWord":
             
             for (let i=0; i<draftState.user.words.length; i++) {
-                const specyficUserWord = draftState.user.words[i];
 
-                if (action.payload.word_id === specyficUserWord.word_id) {
-                    specyficUserWord.currentlyLearning = action.payload.status;
+                if (action.payload.word_id === draftState.user.words[i].word_id) {
+                    draftState.user.words[i] = action.payload;
+                    break;
+                }
+            }
+
+            for (let i=0; i<draftState.user.currentlyLearningWords.length; i++) {
+
+                if (action.payload.word_id === draftState.user.currentlyLearningWords[i].word_id) {
+                    draftState.user.currentlyLearningWords[i] = action.payload;
+                    break;
+                }
+            }
+
+            for (let i=0; i<draftState.user.customWords.length; i++) {
+
+                if (action.payload.word_id === draftState.user.customWords[i].word_id) {
+                    draftState.user.customWords[i] = action.payload;
                     break;
                 }
             }

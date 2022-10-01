@@ -30,9 +30,9 @@ const MainNav = () => {
                     <div className="flex"><span>{PAGES.DIARY}</span></div>
                 </li>
 
-                <li onClick={() => setCurrentTab({type: "setCurrentTab", payload: PAGES.WORDS})}>
+                <li onClick={() => setCurrentTab({type: "setCurrentTab", payload: PAGES.USER_WORDS})}>
                     {appState.tutorialStage === 3 && <img className="arrow arrowTop" src="/images/arrow-up.png" />}
-                    <div className="flex"><span>{PAGES.WORDS}</span></div>
+                    <div className="flex"><span>{PAGES.USER_WORDS}</span></div>
                 </li>
 
                 <li onClick={() => setCurrentTab({type: "setCurrentTab", payload: PAGES.TESTS})}>

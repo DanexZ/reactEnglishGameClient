@@ -13,7 +13,7 @@ export type AppAction =
     | { type: "setUserRanking"; payload: number}
     | { type: "setUserWords"; payload: UserWord[]}
     | { type: "setUserCurrentlyLearningWords"; payload: UserWord[]}
-    | { type: "setUserWordLearningStatus"; payload: {word_id: number, status: LearningStatus}}
+    | { type: "swapUserWord"; payload: UserWord}
     | { type: "setUserEvents"; payload: { unlockedLevels: Event[], unlockedTests: Event[], unlockedDialogues: boolean }}
     | { type: "setUserCustomWords"; payload: UserWord[]}
     | { type: "setUserPhrases"; payload: Phrase[]}

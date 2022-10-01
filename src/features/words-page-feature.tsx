@@ -1,13 +1,13 @@
 import { useContext } from "react";
 import { useImmerReducer } from "use-immer";
 import { WordsPageReducer } from "../data/reducers/WordsPageReducer";
-import WordsPage from "../game-pages/words-page";
+import UserWordsPage from "../game-pages/user-words-page";
 import { WordsPageStateContext } from "../context/WordsPageStateContext";
 import { WordsPageDispatchContext } from "../context/WordsPageDispatchContext";
 import { WordsPageState } from "../data/types/WordsPageState";
 import { AppStateInterface } from "../data/types/AppStateInterface";
 import { AppStateContext } from "../context/AppStateContext";
-import UserWordsPage from "../game-pages/user-words-page";
+import UserCustomWordsPage from "../game-pages/user-custom-words-page";
 import { PAGES } from "../data/constants";
 import UserTrickyWordsPage from "../game-pages/user-tricky-words-page";
 
@@ -29,8 +29,8 @@ const WordsPageFeature = () => {
     return (
         <WordsPageStateContext.Provider value={featureState}>
             <WordsPageDispatchContext.Provider value={featureDispatch}>
-                {appState.currentTab === PAGES.WORDS && <WordsPage />}
                 {appState.currentTab === PAGES.USER_WORDS && <UserWordsPage />}
+                {appState.currentTab === PAGES.USER_CUSTOM_WORDS && <UserCustomWordsPage />}
                 {appState.currentTab === PAGES.USER_LEARNING_WORDS && <UserTrickyWordsPage />}
             </WordsPageDispatchContext.Provider>
         </WordsPageStateContext.Provider>
