@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { AppStateInterface } from "../data/types/AppStateInterface";
 import Calendar from "../components/Calendar/Calendar";
 import SinglePageWrapper from "../components/shared/SinglePageWrapper";

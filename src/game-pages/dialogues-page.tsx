@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AppStateContext } from "../context/AppStateContext";
 import { AppStateInterface } from "../data/types/AppStateInterface";
 import DialogueFeature from "../features/dialogue-feature";
@@ -14,9 +14,8 @@ const DialoguesPage = () => {
     const appState: AppStateInterface = useContext(AppStateContext);
     const {recognition, micBtnRef} = useSpeechRecognition();
 
-    const {pagination, rowsOnPage, currentPageIndex}: any = usePagination({
-        rowsPerPage: 10, 
-        kind: "dialogue",
+    const {pagination, rowsOnPage, currentPageIndex} = usePagination({
+        rowsPerPage: 10,
         elements: appState.dialogues
 
     });
@@ -33,7 +32,7 @@ const DialoguesPage = () => {
     return (
         <SinglePageWrapper additionClasses="dialoguesPage">
             {appState.chosenDialogue > 0 && <DialogueFeature recognition={recognition} micBtnRef={micBtnRef} />} 
-            {appState.chosenDialogue === 0 && rowsOnPage.map(({dialogue, elementIndex}: {dialogue: Dialogue, elementIndex: number}) => <SingleDialogue key={dialogue.name} elementIndex={elementIndex} title={dialogue.name} />)}
+            {appState.chosenDialogue === 0 && rowsOnPage.map(({element, elementIndex}: {element: Dialogue, elementIndex: number}) => <SingleDialogue key={element.name} elementIndex={elementIndex} title={element.name} />)}
             <Pagination pagination={pagination} currentPageIndex={currentPageIndex} />
         </SinglePageWrapper>
     )

@@ -2,21 +2,21 @@ import { useEffect, useMemo, useState } from "react"
 import { createPagination } from "../utils/createPagination";
 import { createPages } from "../utils/createPages";
 import { putElementsIntoPages } from "../utils/putElementsIntoPages";
+import { PageRow } from "../data/types/PageRow";
 
 interface Props {
     rowsPerPage: number
-    kind: string
     elements: any[]
     featureState?: any
 }
 
 export type SortingWordsTypes = "" | "alphabet" | "power";
 
-export const usePagination = ({rowsPerPage, kind, elements}: Props) => {
+export const usePagination = ({rowsPerPage, elements}: Props) => {
 
     const [currentPageIndex, setCurrentPageIndex] = useState(0);
     const [pagination, setPagination]: any = useState([]);
-    const [rowsOnPage, setRowsOnPage] = useState([]);
+    const [rowsOnPage, setRowsOnPage]: [PageRow[], Function] = useState([]);
     const [sort, setSort]: [SortingWordsTypes, Function] = useState("");
 
 
@@ -25,7 +25,7 @@ export const usePagination = ({rowsPerPage, kind, elements}: Props) => {
         const requiredPagesNr = Math.ceil(elements.length/rowsPerPage);
         const pages = createPages(requiredPagesNr);
 
-        putElementsIntoPages(pages, rowsPerPage, elements, kind);
+        putElementsIntoPages(pages, rowsPerPage, elements);
 
         return {pages, requiredPagesNr}
 

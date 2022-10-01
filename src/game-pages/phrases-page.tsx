@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { AppStateContext } from "../context/AppStateContext";
 import { AppStateInterface } from "../data/types/AppStateInterface";
 import PhrasesPageLayout from "../layouts/phrases-page-layout";
@@ -9,8 +9,7 @@ const PhrasesPage = () => {
     const appState: AppStateInterface = useContext(AppStateContext);
 
     const {pagination, rowsOnPage, currentPageIndex}: any = usePagination({
-        rowsPerPage: 10, 
-        kind: "phrase",
+        rowsPerPage: 10,
         elements: appState.phrases
 
     });

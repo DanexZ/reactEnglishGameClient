@@ -1,6 +1,5 @@
 import { Badge, Comment, Conversation, Dialogue, Event, Phrase, ReceivedMessage, RootaText, User, UserDay, UserTest, UserWord, Word } from "../models";
 import { ExamStatus } from "../types/ExamStatus";
-import { LearningStatus } from "../types/LearningStatus";
 
 export type AppAction =
     | { type: "login"; payload: User }

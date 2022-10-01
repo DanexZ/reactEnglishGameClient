@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import SinglePageWrapper from "../components/shared/SinglePageWrapper";
 import TransparentBox from "../components/shared/TransparentBox/TransparentBox";
 import { AppDispatchContext } from "../context/AppDispatchContext";
@@ -6,7 +6,7 @@ import { AppAction } from "../data/actions/AppAction";
 import { Conversation, Comment } from "../data/models";
 import { AppStateInterface } from "../data/types/AppStateInterface";
 import { useMessage } from "../hooks/inputs/useMessage";
-import { useInitialFieldState, useLiveValidation } from "../hooks/useLiveValidation";
+import { useLiveValidation } from "../hooks/useLiveValidation";
 import Alert from "../lib/Alert";
 import { addAsyncComment } from "../lib/api";
 import { getDate } from "../utils/date/getDate";

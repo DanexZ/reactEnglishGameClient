@@ -1,22 +1,23 @@
 import { useContext } from "react";
 import { WordsPageStateContext } from "../../context/WordsPageStateContext";
 import { UserWord } from "../../data/models";
+import { PageRow } from "../../data/types/PageRow";
 import { WordsPageState } from "../../data/types/WordsPageState";
 import { SingleWordRow } from "./SingleWordRow";
 
-const WordsList = ({rowsOnPage}: any) => {
+const WordsList = ({rowsOnPage}: {rowsOnPage: PageRow[]}) => {
 
     const featureState: WordsPageState = useContext(WordsPageStateContext);
 
     return (
         <ul>
-            {rowsOnPage.map((row:any, index: number) => {
+            {rowsOnPage.map(({element}: {element: UserWord}, index: number) => {
                 return (
                     <SingleWordRow 
-                        key={`${row.name}${index}`}
-                        userWord={row.word}
+                        key={`${element.name}${index}`}
+                        userWord={element}
                         cssClass="static"
-                        isAdded={ (featureState.learningWords.find((word: UserWord) => word.word_id === row.word.word_id)) ? true : false }
+                        isAdded={ (featureState.learningWords.find((word: UserWord) => word.word_id === element.word_id)) ? true : false }
                     />
                 )
             })}

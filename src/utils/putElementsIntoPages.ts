@@ -1,4 +1,7 @@
-export const putElementsIntoPages = (pages: any[], rowsPerPage: number, elements: any[], key: string) => {
+import { Page } from "../data/types/Page";
+import { PageRow } from "../data/types/PageRow";
+
+export const putElementsIntoPages = (pages: Page[], rowsPerPage: number, elements: PageRow[]) => {
     
     let elementIndex = 0;
 
@@ -6,7 +9,7 @@ export const putElementsIntoPages = (pages: any[], rowsPerPage: number, elements
         for(let m=0; m<rowsPerPage; m++){
 
             if( elements[elementIndex] ){
-                pages[i].rows.push( { [key]: elements[elementIndex], elementIndex } );
+                pages[i].rows.push( { element: elements[elementIndex], elementIndex } );
                 elementIndex++;
             }
         }

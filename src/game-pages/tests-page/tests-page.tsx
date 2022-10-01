@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AppStateContext } from "../../context/AppStateContext";
 import TestsList from "../../components/tests-page-layout/TestsList";
 import { useSpeechRecognition } from "../../hooks/useSpeechRecognition";

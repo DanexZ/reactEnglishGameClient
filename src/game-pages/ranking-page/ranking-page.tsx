@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import SinglePageWrapper from "../../components/shared/SinglePageWrapper";
 import { AppStateContext } from "../../context/AppStateContext";
 import { User } from "../../data/models";

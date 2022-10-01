@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { TestWord, Translation, UserTest } from "../../data/models";
 import TestRow from "../../components/tests-page-layout/TestRow";
 import { AppStateInterface } from "../../data/types/AppStateInterface";

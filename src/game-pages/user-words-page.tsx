@@ -29,8 +29,7 @@ const WordsPage = () => {
     const featureState: WordsPageState = useContext(WordsPageStateContext);
 
     const {pagination, rowsOnPage, currentPageIndex, setSort, pages}: any = usePagination({
-        rowsPerPage: 30, 
-        kind: "word",
+        rowsPerPage: 30,
         elements: appState.user.words
     });
 

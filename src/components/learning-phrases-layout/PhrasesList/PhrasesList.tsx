@@ -1,12 +1,13 @@
-import React from "react";
+import { Phrase } from "../../../data/models";
+import { PageRow } from "../../../data/types/PageRow";
 import PhraseRow from "../PhraseRow/PhraseRow";
 
 
-const PhrasesList = ({rowsOnPage}: {rowsOnPage: any}) => {
+const PhrasesList = ({rowsOnPage}: {rowsOnPage: PageRow[]}) => {
 
     return (
         <ul>
-            {rowsOnPage.map((row: any) => <PhraseRow key={`${row.phrase.name}element`}  phrase={row.phrase} />)}
+            {rowsOnPage.map(({element}: {element: Phrase}) => <PhraseRow key={`${element.name}element`}  phrase={element} />)}
         </ul>
     )
 }
