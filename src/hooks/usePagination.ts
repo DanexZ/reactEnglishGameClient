@@ -11,10 +11,14 @@ export interface PaginationArgs {
 
 export type SortingWordsTypes = "" | "alphabet" | "power";
 
+interface PaginationPill {
+    onClickFn: Function
+}
+
 export const usePagination = ({rowsPerPage, elements}: PaginationArgs) => {
 
     const [currentPageIndex, setCurrentPageIndex] = useState(0);
-    const [pagination, setPagination]: any = useState([]);
+    const [pagination, setPagination]: [PaginationPill[], Function] = useState([{onClickFn: () => {}}]);
     const [rowsOnPage, setRowsOnPage]: [PageRow[], Function] = useState([]);
     const [sort, setSort]: [SortingWordsTypes, Function] = useState("");
 
@@ -38,7 +42,6 @@ export const usePagination = ({rowsPerPage, elements}: PaginationArgs) => {
         const pagination = createPagination(requiredPagesNr, switchPage);
         setPagination(pagination);
 
-        if (sort) console.log(pages[currentPageIndex]);
         if (sort && sort === "alphabet") pages[currentPageIndex].rows.sort((row1: PageRow, row2: PageRow) => row1.element.name.localeCompare(row2.element.name));
         if (sort && sort === "power") pages[currentPageIndex].rows.sort((row1: PageRow, row2: PageRow) => row1.element.power - row2.element.power);
 
