@@ -10,16 +10,17 @@ import { AppStateInterface } from "../data/types/AppStateInterface";
 import { WordsPageState } from "../data/types/WordsPageState";
 import ListeningFeature from "../features/listening-feature";
 import TrainingWordFeature from "../features/training-word-feature";
-import { usePagination } from "../hooks/usePagination";
+import { PaginationArgs, usePagination } from "../hooks/usePagination";
 
 const UserTrickyWordsPage = () => {
     const appState: AppStateInterface = useContext(AppStateContext);
     const featureState: WordsPageState = useContext(WordsPageStateContext);
-
-    const {pagination, rowsOnPage, currentPageIndex, setSort, pages} = usePagination({
+    const paginationArgs: PaginationArgs = {
         rowsPerPage: 30,
         elements: appState.user.currentlyLearningWords
-    });
+    }
+
+    const {pagination, rowsOnPage, currentPageIndex, setSort, pages} = usePagination(paginationArgs);
 
 
 

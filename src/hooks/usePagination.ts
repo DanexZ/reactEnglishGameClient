@@ -4,15 +4,14 @@ import { createPages } from "../utils/createPages";
 import { putElementsIntoPages } from "../utils/putElementsIntoPages";
 import { PageRow } from "../data/types/PageRow";
 
-interface Props {
+export interface PaginationArgs {
     rowsPerPage: number
     elements: any[]
-    featureState?: any
 }
 
 export type SortingWordsTypes = "" | "alphabet" | "power";
 
-export const usePagination = ({rowsPerPage, elements}: Props) => {
+export const usePagination = ({rowsPerPage, elements}: PaginationArgs) => {
 
     const [currentPageIndex, setCurrentPageIndex] = useState(0);
     const [pagination, setPagination]: any = useState([]);
@@ -39,8 +38,9 @@ export const usePagination = ({rowsPerPage, elements}: Props) => {
         const pagination = createPagination(requiredPagesNr, switchPage);
         setPagination(pagination);
 
-        if (sort && sort === "alphabet") pages[currentPageIndex].rows.sort((row1: any, row2: any) => row1.word.name.localeCompare(row2.word.name));
-        if (sort && sort === "power") pages[currentPageIndex].rows.sort((row1: any, row2: any) => row1.word.power - row2.word.power);
+        if (sort) console.log(pages[currentPageIndex]);
+        if (sort && sort === "alphabet") pages[currentPageIndex].rows.sort((row1: PageRow, row2: PageRow) => row1.element.name.localeCompare(row2.element.name));
+        if (sort && sort === "power") pages[currentPageIndex].rows.sort((row1: PageRow, row2: PageRow) => row1.element.power - row2.element.power);
 
         setRowsOnPage(pages[currentPageIndex].rows);
 

@@ -6,19 +6,19 @@ import { SingleDialogue } from "../components/dialogues-layout/SingleDialogue";
 import { useSpeechRecognition } from "../hooks/useSpeechRecognition";
 import { Dialogue } from "../data/models";
 import SinglePageWrapper from "../components/shared/SinglePageWrapper";
-import { usePagination } from "../hooks/usePagination";
+import { PaginationArgs, usePagination } from "../hooks/usePagination";
 import Pagination from "../components/shared/Pagination/Pagination";
 
 const DialoguesPage = () => {   
     
     const appState: AppStateInterface = useContext(AppStateContext);
     const {recognition, micBtnRef} = useSpeechRecognition();
-
-    const {pagination, rowsOnPage, currentPageIndex} = usePagination({
+    const paginationArgs: PaginationArgs = {
         rowsPerPage: 10,
         elements: appState.dialogues
+    }
 
-    });
+    const {pagination, rowsOnPage, currentPageIndex} = usePagination(paginationArgs);
 
 
     if (appState.user.level < 2) {

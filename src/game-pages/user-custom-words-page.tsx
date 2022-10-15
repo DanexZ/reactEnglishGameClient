@@ -5,7 +5,7 @@ import SinglePageWrapper from "../components/shared/SinglePageWrapper";
 import WordsPageDashboard from "../components/learning-words-layout/WordsPageDashboard";
 import WordsList from "../components/learning-words-layout/WordsList";
 import Pagination from "../components/shared/Pagination/Pagination";
-import { usePagination } from "../hooks/usePagination";
+import { PaginationArgs, usePagination } from "../hooks/usePagination";
 import { WordsPageState } from "../data/types/WordsPageState";
 import { AppStateInterface } from "../data/types/AppStateInterface";
 import ListeningFeature from "../features/listening-feature";
@@ -16,11 +16,12 @@ const UserCustomWordsPage = () => {
 
     const appState: AppStateInterface = useContext(AppStateContext);
     const featureState: WordsPageState = useContext(WordsPageStateContext);
-
-    const {pagination, rowsOnPage, currentPageIndex, setSort, pages} = usePagination({
+    const paginationArgs: PaginationArgs = {
         rowsPerPage: 30,
         elements: appState.user.customWords
-    });
+    }
+
+    const {pagination, rowsOnPage, currentPageIndex, setSort, pages} = usePagination(paginationArgs);
 
 
 

@@ -2,17 +2,17 @@ import { useContext } from "react";
 import { AppStateContext } from "../context/AppStateContext";
 import { AppStateInterface } from "../data/types/AppStateInterface";
 import PhrasesPageLayout from "../layouts/phrases-page-layout";
-import { usePagination } from "../hooks/usePagination";
+import { PaginationArgs, usePagination } from "../hooks/usePagination";
 
 const PhrasesPage = () => {
 
     const appState: AppStateInterface = useContext(AppStateContext);
-
-    const {pagination, rowsOnPage, currentPageIndex}: any = usePagination({
+    const paginationArgs: PaginationArgs = {
         rowsPerPage: 10,
         elements: appState.phrases
+    }
 
-    });
+    const {pagination, rowsOnPage, currentPageIndex}: any = usePagination(paginationArgs);
 
 
     return <PhrasesPageLayout pagination={pagination} rowsOnPage={rowsOnPage} currentPageIndex={currentPageIndex} />

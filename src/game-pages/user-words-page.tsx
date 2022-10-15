@@ -7,7 +7,7 @@ import Tip from "../components/shared/Tip";
 import WordsList from "../components/learning-words-layout/WordsList";
 import Pagination from "../components/shared/Pagination/Pagination";
 import AdditionalButtons from "../components/learning-words-layout/AdditionalButtons";
-import { usePagination } from "../hooks/usePagination";
+import { PaginationArgs, usePagination } from "../hooks/usePagination";
 import { WordsPageState } from "../data/types/WordsPageState";
 import { AppStateInterface } from "../data/types/AppStateInterface";
 import Jigsaw from "../components/learning-words-layout/JigSaw/Jigsaw";
@@ -28,16 +28,18 @@ const WordsPage = () => {
     const appDispatch: Function = useContext(AppDispatchContext);
     const featureState: WordsPageState = useContext(WordsPageStateContext);
 
-    const {pagination, rowsOnPage, currentPageIndex, setSort, pages}: any = usePagination({
+    const {recognition, micBtnRef, userSpeech, finalTranscript} = useSpeechRecognition();
+    const [isJigsawDisplayed, setIsJigsawDisplayed] = useState(false);
+    const minimumWords: number = (appState.user.level > 1) ? (appState.user.level * 2) + 5 : 3;
+
+    const paginationArgs: PaginationArgs = {
         rowsPerPage: 30,
         elements: appState.user.words
-    });
+    }
 
-    const {recognition, micBtnRef, userSpeech, finalTranscript} = useSpeechRecognition();
+    const {pagination, rowsOnPage, currentPageIndex, setSort, pages}: any = usePagination(paginationArgs);
 
-    const [isJigsawDisplayed, setIsJigsawDisplayed] = useState(false);
-
-    const minimumWords: number = (appState.user.level > 1) ? (appState.user.level * 2) + 5 : 3;
+    
 
     const exitSpeakingFn = () => {
         const action: AppAction = {type: "deactivateSpeakingFeature"}
