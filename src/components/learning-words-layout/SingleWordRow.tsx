@@ -19,12 +19,11 @@ import { useSavingHandlers } from "../../hooks/useSavingHandlers";
 
 interface Props {
     userWord: UserWord
-    isAdded: boolean
-    cssClass: string
+    isAdded: Boolean
 }
 
 
-export const SingleWordRow = ({userWord, isAdded, cssClass}: Props) => {
+export const SingleWordRow = ({userWord, isAdded}: Props) => {
 
     const appState: AppStateInterface = useContext(AppStateContext);
     const appDispatch: Function = useContext(AppDispatchContext);
@@ -132,7 +131,7 @@ export const SingleWordRow = ({userWord, isAdded, cssClass}: Props) => {
 
                 <button className="btn btn-blue" onClick={handleToggleTricky}>{(trickyWord === "true" ? "Got it" : "Tricky")}</button>
 
-                <Tile3d cssClass={cssClass} onClickFn={trainWord} >
+                <Tile3d cssClass="static" onClickFn={trainWord} >
                     <div className="correctnesses flex">
                         <img src="images/correct.png" />
                         <span>{userWord.correctnesses.length}</span>

@@ -16,7 +16,6 @@ const WordsList = ({rowsOnPage}: {rowsOnPage: PageRow[]}) => {
                     <SingleWordRow 
                         key={`${element.name}${index}`}
                         userWord={element}
-                        cssClass="static"
                         isAdded={ (featureState.learningWords.find((word: UserWord) => word.word_id === element.word_id)) ? true : false }
                     />
                 )

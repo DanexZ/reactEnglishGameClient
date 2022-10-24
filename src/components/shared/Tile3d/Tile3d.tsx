@@ -1,19 +1,17 @@
+import Cuboid from "../3D/Cuboid/Cuboid";
 import "./Tile3d.scss";
 
-const Tile3d = ({onClickFn, cssClass, children}: {onClickFn?: Function, cssClass: string, children: any}) => {
+interface Props {
+    cssClass: "static" | "dynamic"
+    onClickFn?: Function
+    children?: React.ReactNode
+}
+
+const Tile3d = ({cssClass, onClickFn, children}: Props) => {
 
     return (
         <div className="scene" onClick={(onClickFn) ? () => onClickFn() : () => {}}>
-            <div className={`tile-3d ${cssClass}`}>
-                <div className="wall front">
-                    {children}
-                </div>
-                <div className="wall back"></div>
-                <div className="wall left"></div>
-                <div className="wall right"></div>
-                <div className="wall top"></div>
-                <div className="wall bottom"></div>
-            </div>
+            <Cuboid width="200px" height="70px" thickness="3px" cssClass={cssClass} FrontWallChildren={children} />
         </div>
     )
 }
